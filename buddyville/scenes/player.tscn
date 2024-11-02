@@ -695,7 +695,7 @@ sprite_frames = SubResource("SpriteFrames_sfdn8")
 animation = &"walk-up"
 
 [node name="Area2D" type="Area2D" parent="."]
-collision_layer = 2
+collision_layer = 128
 collision_mask = 2
 
 [node name="Interaction" type="CollisionShape2D" parent="Area2D"]
@@ -705,3 +705,4 @@ shape = SubResource("CircleShape2D_ht1qo")
 zoom = Vector2(2, 2)
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

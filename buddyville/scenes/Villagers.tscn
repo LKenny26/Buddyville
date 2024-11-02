@@ -1,0 +1,66 @@
+[gd_scene load_steps=12 format=3 uid="uid://ru1bibjng8ry"]
+
+[ext_resource type="Script" path="res://scenes/villagers.gd" id="1_dplr4"]
+[ext_resource type="Texture2D" uid="uid://bkau6d4anw8ey" path="res://resources/sprites/villagers/Monkey/OriginalQuality/Untitled_Artwork-1.png" id="2_hbmud"]
+[ext_resource type="Texture2D" uid="uid://bvaboy7jydgg6" path="res://resources/sprites/villagers/Monkey/OriginalQuality/Untitled_Artwork-2.png" id="3_00b1v"]
+[ext_resource type="Texture2D" uid="uid://befuertep0p3f" path="res://resources/sprites/villagers/Monkey/OriginalQuality/Untitled_Artwork-3.png" id="4_ufl7m"]
+[ext_resource type="Texture2D" uid="uid://c71p18op3cavu" path="res://resources/sprites/villagers/Monkey/OriginalQuality/Untitled_Artwork-4.png" id="5_w5c2c"]
+[ext_resource type="Texture2D" uid="uid://blyfhs6t0yrsf" path="res://resources/sprites/villagers/Monkey/OriginalQuality/Untitled_Artwork-5.png" id="6_d7bt3"]
+[ext_resource type="Texture2D" uid="uid://dieyqiqmx0lv" path="res://resources/sprites/villagers/Monkey/OriginalQuality/Untitled_Artwork-6.png" id="7_de844"]
+[ext_resource type="Texture2D" uid="uid://cjxp0dtnogcpo" path="res://resources/sprites/villagers/Monkey/OriginalQuality/Untitled_Artwork-7.png" id="8_qdo5e"]
+[ext_resource type="Texture2D" uid="uid://b5vp4ymi53rh5" path="res://resources/sprites/villagers/Monkey/OriginalQuality/Untitled_Artwork-8.png" id="9_2nw2s"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bovaw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_hbmud")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_00b1v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ufl7m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_w5c2c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_d7bt3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_de844")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_qdo5e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_2nw2s")
+}],
+"loop": true,
+"name": &"monkey",
+"speed": 15.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vojme"]
+radius = 26.0
+height = 88.0
+
+[node name="Villagers" type="CharacterBody2D"]
+position = Vector2(469, 235)
+script = ExtResource("1_dplr4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_bovaw")
+animation = &"monkey"
+frame_progress = 0.183596
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 2)
+shape = SubResource("CapsuleShape2D_vojme")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1.5
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

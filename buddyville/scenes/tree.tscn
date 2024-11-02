@@ -54,3 +54,4 @@ text = "Click to hit!"
 
 [connection signal="body_entered" from="InteractableArea2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="InteractableArea2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="input_event" from="InteractableArea2D" to="." method="_input_event"]

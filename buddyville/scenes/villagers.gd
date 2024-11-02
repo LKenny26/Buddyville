@@ -4,6 +4,7 @@ const speed = 75 # speed villagers move at
 var start_pos
 var curr_state = IDLE # state that the villager is in
 var dir = Vector2.RIGHT # direction villager will move in
+var player_close = false # if the player is close to villager
 
 # different villager states 
 enum{
@@ -54,5 +55,23 @@ func _on_timer_timeout() -> void:
 	$Timer.wait_time = 0.5
 	curr_state = choose([IDLE, CHOOSE_DIR, MOVING])
 
-func interact():
-	print("Hello!")
+
+func _on_area_2d_input_event_monkey(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if event.is_action_pressed("Interact") && player_close:
+		print("Hello I'm monkey")
+
+func _on_area_2d_input_event_owl(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if event.is_action_pressed("Interact") && player_close:
+		print("Hello")
+		
+func _on_area_2d_input_event_porcupine(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	pass # Replace with function body.
+
+func _on_area_2d_input_event_rabbit(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	pass # Replace with function body.
+	
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	player_close = true
+	
+func _on_area_2d_body_exited(body: Node2D) -> void:
+	player_close = false

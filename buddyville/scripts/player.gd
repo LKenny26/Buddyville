@@ -102,6 +102,6 @@ func exit_pressed() -> void:
 
 
 func return_pressed():
-	can_move = pause_menu.visible
-	pause_menu.visible = !pause_menu.visible
+	can_move = true
+	pause_menu.visible = false
 	emit_signal("pause")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cgveo3du6coy4"]
+[gd_scene load_steps=12 format=3 uid="uid://5wdokngdamp"]
 
 [ext_resource type="Script" path="res://scenes/villagers.gd" id="1_mnjga"]
 [ext_resource type="Texture2D" uid="uid://byg3jv86b5kxh" path="res://resources/sprites/villagers/Rabbit/OriginalQuality/Untitled_Artwork-1(2).png" id="2_irgl8"]
@@ -46,7 +46,7 @@ animations = [{
 radius = 14.0
 height = 36.0
 
-[node name="Rabbit" type="CharacterBody2D"]
+[node name="Rabbit" type="CharacterBody2D" groups=["NPC"]]
 script = ExtResource("1_mnjga")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://ru1bibjng8ry"]
+[gd_scene load_steps=12 format=3 uid="uid://u83mumls8bva"]
 
 [ext_resource type="Script" path="res://scenes/villagers.gd" id="1_dplr4"]
 [ext_resource type="Texture2D" uid="uid://bkau6d4anw8ey" path="res://resources/sprites/villagers/Monkey/OriginalQuality/Untitled_Artwork-1.png" id="2_hbmud"]
@@ -46,7 +46,7 @@ animations = [{
 radius = 14.0
 height = 36.0
 
-[node name="Monkey" type="CharacterBody2D"]
+[node name="Monkey" type="CharacterBody2D" groups=["NPC"]]
 collision_layer = 3
 script = ExtResource("1_dplr4")
 

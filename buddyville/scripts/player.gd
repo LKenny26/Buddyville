@@ -11,6 +11,8 @@ var last_dir = LEFT
 var run = false
 var interactable
 
+var inventory = []
+
 func _process(delta: float) -> void:
 	
 	#---------------- movement code----------------

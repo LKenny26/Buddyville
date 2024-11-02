@@ -46,13 +46,12 @@ animations = [{
 radius = 14.0
 height = 36.0
 
-[node name="Villagers" type="CharacterBody2D"]
+[node name="Monkey" type="CharacterBody2D"]
 script = ExtResource("1_dplr4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_bovaw")
 animation = &"monkey"
-frame_progress = 0.0998652
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 2)

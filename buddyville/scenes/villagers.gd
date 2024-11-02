@@ -1,4 +1,4 @@
-extends CharacterBody2D
+class_name Villager extends CharacterBody2D
 
 const speed = 75 # speed villagers move at
 var start_pos

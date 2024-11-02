@@ -24,6 +24,11 @@ func _ready() -> void:
 	pause_menu.exit_game.connect(exit_pressed)
 	pause_menu.return_game.connect(return_pressed)
 
+var inventory = []
+
+func _ready():
+	inventory = GameState.inventory
+
 func _process(delta: float) -> void:
 	
 	#---------------- movement code----------------
@@ -90,6 +95,9 @@ func _process(delta: float) -> void:
 		pause_menu.visible = !pause_menu.visible
 		
 
+
+func get_item():
+	inventory.add
 
 func death():
 	set_process(false)

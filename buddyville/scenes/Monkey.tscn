@@ -49,7 +49,7 @@ height = 36.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_hdvne"]
 radius = 50.1597
 
-[node name="Monkey" type="CharacterBody2D"]
+[node name="Monkey" type="CharacterBody2D" groups=["NPC"]]
 collision_layer = 3
 script = ExtResource("1_dplr4")
 

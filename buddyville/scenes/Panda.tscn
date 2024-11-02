@@ -1,0 +1,54 @@
+[gd_scene load_steps=9 format=3 uid="uid://jx3iefik11fy"]
+
+[ext_resource type="Script" path="res://scenes/panda.gd" id="1_qwq17"]
+[ext_resource type="PackedScene" uid="uid://ru1bibjng8ry" path="res://scenes/Monkey.tscn" id="1_sg4ir"]
+[ext_resource type="Texture2D" uid="uid://bfmkvmrnsyw2m" path="res://resources/sprites/villagers/Panda/Petey Panda/Spritesheets/Idle.png" id="2_tkl23"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a368n"]
+atlas = ExtResource("2_tkl23")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vqxbs"]
+atlas = ExtResource("2_tkl23")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_frho0"]
+atlas = ExtResource("2_tkl23")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8tte1"]
+atlas = ExtResource("2_tkl23")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yy14y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a368n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vqxbs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_frho0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8tte1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="Panda" instance=ExtResource("1_sg4ir")]
+script = ExtResource("1_qwq17")
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+position = Vector2(-1, -9)
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_yy14y")
+animation = &"default"
+autoplay = "default"
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(-1, 0)

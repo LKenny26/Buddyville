@@ -49,7 +49,7 @@ height = 36.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_81ln7"]
 radius = 50.1597
 
-[node name="Porcupine" type="CharacterBody2D"]
+[node name="Porcupine" type="CharacterBody2D" groups=["NPC"]]
 collision_layer = 3
 script = ExtResource("1_jqn48")
 

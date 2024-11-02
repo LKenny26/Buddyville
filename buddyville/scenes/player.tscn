@@ -704,7 +704,7 @@ collision_mask = 2
 shape = SubResource("CircleShape2D_ht1qo")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(2, 2)
+zoom = Vector2(1.5, 1.5)
 
 [node name="DialogueHud" parent="." instance=ExtResource("6_ncyh4")]
 visible = false

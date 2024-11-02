@@ -1,7 +1,6 @@
 extends CharacterBody2D
 
-
-const speed = 30 # speed villagers move at
+const speed = 75 # speed villagers move at
 var start_pos
 var curr_state = IDLE # state that the villager is in
 var dir = Vector2.RIGHT # direction villager will move in
@@ -52,7 +51,6 @@ func move(delta):
 
 # chooses random state
 func _on_timer_timeout() -> void:
-	print(curr_state)
 	$Timer.wait_time = 0.5
 	curr_state = choose([IDLE, CHOOSE_DIR, MOVING])
 

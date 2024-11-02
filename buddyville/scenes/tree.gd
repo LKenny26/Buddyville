@@ -26,3 +26,5 @@ func interact():
 		print("apple")
 		emit_signal("give_player", "apple")
 		interacted = true
+		print($Sprite2D.get_region_rect())
+		# += Vector2(-160,0)

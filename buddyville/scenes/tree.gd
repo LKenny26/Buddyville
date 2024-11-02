@@ -20,4 +20,5 @@ func _on_area_2d_body_exited(body):
 	$Tooltip.visible = false
 
 func interact():
+	print("apple")
 	emit_signal("give_player", "apple")

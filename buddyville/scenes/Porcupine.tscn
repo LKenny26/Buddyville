@@ -1,0 +1,63 @@
+[gd_scene load_steps=12 format=3 uid="uid://c40ij0bcltqal"]
+
+[ext_resource type="Script" path="res://scenes/villagers.gd" id="1_jqn48"]
+[ext_resource type="Texture2D" uid="uid://b3g2aro7jcj7c" path="res://resources/sprites/villagers/Porcupine/OriginalQuality/Untitled_Artwork-1.png" id="2_4ag87"]
+[ext_resource type="Texture2D" uid="uid://dm6jok4loqiu" path="res://resources/sprites/villagers/Porcupine/OriginalQuality/Untitled_Artwork-2.png" id="3_6tvyc"]
+[ext_resource type="Texture2D" uid="uid://wq45fm3m5aul" path="res://resources/sprites/villagers/Porcupine/OriginalQuality/Untitled_Artwork-3.png" id="4_iq4v3"]
+[ext_resource type="Texture2D" uid="uid://dr0tid2gs4awd" path="res://resources/sprites/villagers/Porcupine/OriginalQuality/Untitled_Artwork-4.png" id="5_xtkk6"]
+[ext_resource type="Texture2D" uid="uid://cc0axp4rnrln3" path="res://resources/sprites/villagers/Porcupine/OriginalQuality/Untitled_Artwork-5.png" id="6_6ufvd"]
+[ext_resource type="Texture2D" uid="uid://cv7bfw0vk3d73" path="res://resources/sprites/villagers/Porcupine/OriginalQuality/Untitled_Artwork-6.png" id="7_eiurj"]
+[ext_resource type="Texture2D" uid="uid://b8whrp5yuypty" path="res://resources/sprites/villagers/Porcupine/OriginalQuality/Untitled_Artwork-7.png" id="8_taymw"]
+[ext_resource type="Texture2D" uid="uid://dnh34ewdp18jt" path="res://resources/sprites/villagers/Porcupine/OriginalQuality/Untitled_Artwork-8.png" id="9_w7eoo"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8qjos"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_4ag87")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_6tvyc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_iq4v3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_xtkk6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_6ufvd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_eiurj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_taymw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_w7eoo")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vojme"]
+radius = 14.0
+height = 36.0
+
+[node name="Porcupine" type="CharacterBody2D"]
+script = ExtResource("1_jqn48")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_8qjos")
+frame_progress = 0.743794
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 2)
+shape = SubResource("CapsuleShape2D_vojme")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1.5
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

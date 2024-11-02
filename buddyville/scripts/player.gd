@@ -10,6 +10,17 @@ var speed = 300.0
 var last_dir = LEFT
 var run = false
 
+signal exit
+
+var pause_menu_scene = load("res://scenes/pause_menu.tscn")
+var pause_menu
+
+func _ready() -> void:
+	pause_menu = pause_menu_scene.instantiate()
+	add_child(pause_menu)
+	pause_menu.exit_game.connect(exit_pressed)
+	pause_menu.return_game.connect(return_pressed)
+
 func _process(delta: float) -> void:
 	
 	#---------------- movement code----------------
@@ -67,8 +78,20 @@ func _process(delta: float) -> void:
 		else:
 			get_node("AnimatedSprite2D").play("idle-down")
 	move_and_collide(direction * speed * delta) # cheat to get it to move and collide right
+	
+	#---------------- Pause Menu ----------------------
+	if Input.is_action_just_pressed("escape"):
+		pause_menu.visible = !pause_menu.visible
 
 func death():
 	set_process(false)
 	$AnimatedSprite2D.play("death")
 	queue_free()
+
+
+func exit_pressed() -> void:
+	emit_signal("exit")
+
+
+func return_pressed():
+	pause_menu.visible = !pause_menu.visible

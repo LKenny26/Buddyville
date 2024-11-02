@@ -12,6 +12,8 @@ var run = false
 var can_move = true
 
 signal exit
+signal pause
+signal unpause
 
 var pause_menu_scene = load("res://scenes/pause_menu.tscn")
 var pause_menu
@@ -83,6 +85,7 @@ func _process(delta: float) -> void:
 	
 	#---------------- Pause Menu ----------------------
 	if Input.is_action_just_pressed("escape"):
+		emit_signal("pause")
 		can_move = pause_menu.visible
 		pause_menu.visible = !pause_menu.visible
 		
@@ -101,4 +104,4 @@ func exit_pressed() -> void:
 func return_pressed():
 	can_move = pause_menu.visible
 	pause_menu.visible = !pause_menu.visible
-	
+	emit_signal("pause")

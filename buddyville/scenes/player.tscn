@@ -1,4 +1,4 @@
-[gd_scene load_steps=96 format=3 uid="uid://ehfrk34mqty0"]
+[gd_scene load_steps=97 format=3 uid="uid://ehfrk34mqty0"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_kih5j"]
 [ext_resource type="Texture2D" uid="uid://4oiqi50kk8ho" path="res://resources/sprites/player/Base Character - Free/idle.png" id="2_b4uab"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cpfgl73cgvvlq" path="res://resources/sprites/player/Base Character - Free/walk.png" id="3_pr7ay"]
 [ext_resource type="Texture2D" uid="uid://doftigqod8qif" path="res://resources/sprites/player/Base Character - Free/run.png" id="3_s1pp5"]
 [ext_resource type="PackedScene" uid="uid://cogv1ja5ppqhl" path="res://scenes/dialogue_hud.tscn" id="6_ncyh4"]
+[ext_resource type="PackedScene" uid="uid://dlkgdkauuen1n" path="res://scenes/map.tscn" id="8_tsat4"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0adrg"]
 radius = 6.0
@@ -707,6 +708,21 @@ zoom = Vector2(2, 2)
 
 [node name="DialogueHud" parent="." instance=ExtResource("6_ncyh4")]
 visible = false
+
+[node name="RegularHud" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Control" type="Control" parent="RegularHud"]
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -521.0
+offset_bottom = 521.0
+grow_horizontal = 0
+
+[node name="Map" parent="RegularHud/Control" instance=ExtResource("8_tsat4")]
+scale = Vector2(0.5, 0.5)
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

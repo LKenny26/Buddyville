@@ -9,36 +9,49 @@ const DOWN = 3
 var speed = 300.0
 var last_dir = LEFT
 var run = false
+var can_move = true
+
+signal exit
+signal pause
+signal unpause
+
+var pause_menu_scene = load("res://scenes/pause_menu.tscn")
+var pause_menu
+
+func _ready() -> void:
+	pause_menu = pause_menu_scene.instantiate()
+	add_child(pause_menu)
+	pause_menu.exit_game.connect(exit_pressed)
+	pause_menu.return_game.connect(return_pressed)
+	inventory = GameState.inventory
 
 var inventory = []
-
-func _ready():
-	inventory = GameState.inventory
 
 func _process(delta: float) -> void:
 	
 	#---------------- movement code----------------
 	var direction = Vector2.ZERO # (0,0) no direction rn
 	# move the character by changing vector
-	if Input.is_action_pressed("Up"):
-		direction.y -= 1
-		last_dir = UP
-	if Input.is_action_pressed("Down"):
-		direction.y += 1
-		last_dir = DOWN
-	if Input.is_action_pressed("Left"):
-		direction.x -= 1
-		last_dir = LEFT
-	if Input.is_action_pressed("Right"):
-		direction.x += 1
-		last_dir = RIGHT
-	
-	if Input.is_action_pressed("Run"):
-		run = true
-		speed = 600
-	else:
-		run = false
-		speed = 300
+	if can_move:
+		if Input.is_action_pressed("Up"):
+			direction.y -= 1
+			last_dir = UP
+		if Input.is_action_pressed("Down"):
+			direction.y += 1
+			last_dir = DOWN
+		if Input.is_action_pressed("Left"):
+			direction.x -= 1
+			last_dir = LEFT
+		if Input.is_action_pressed("Right"):
+			direction.x += 1
+			last_dir = RIGHT
+		
+		if Input.is_action_pressed("Run"):
+			run = true
+			speed = 600
+		else:
+			run = false
+			speed = 300
 	
 	if direction.length() > 1:
 		direction = direction.normalized()
@@ -72,6 +85,14 @@ func _process(delta: float) -> void:
 		else:
 			get_node("AnimatedSprite2D").play("idle-down")
 	move_and_collide(direction * speed * delta) # cheat to get it to move and collide right
+	
+	#---------------- Pause Menu ----------------------
+	if Input.is_action_just_pressed("escape"):
+		emit_signal("pause")
+		can_move = pause_menu.visible
+		pause_menu.visible = !pause_menu.visible
+		
+
 
 func get_item():
 	inventory.add
@@ -80,3 +101,13 @@ func death():
 	set_process(false)
 	$AnimatedSprite2D.play("death")
 	queue_free()
+
+
+func exit_pressed() -> void:
+	emit_signal("exit")
+
+
+func return_pressed():
+	can_move = true
+	pause_menu.visible = false
+	emit_signal("pause")

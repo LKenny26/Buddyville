@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c40ij0bcltqal"]
+[gd_scene load_steps=12 format=3 uid="uid://druspemd4muet"]
 
 [ext_resource type="Script" path="res://scenes/villagers.gd" id="1_jqn48"]
 [ext_resource type="Texture2D" uid="uid://b3g2aro7jcj7c" path="res://resources/sprites/villagers/Porcupine/OriginalQuality/Untitled_Artwork-1.png" id="2_4ag87"]
@@ -47,6 +47,7 @@ radius = 14.0
 height = 36.0
 
 [node name="Porcupine" type="CharacterBody2D"]
+collision_layer = 3
 script = ExtResource("1_jqn48")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

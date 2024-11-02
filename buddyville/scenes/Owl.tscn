@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://daf0e1u4835rl"]
+[gd_scene load_steps=12 format=3 uid="uid://sen2li0lcgjt"]
 
 [ext_resource type="Script" path="res://scenes/villagers.gd" id="1_o1qbr"]
 [ext_resource type="Texture2D" uid="uid://62xirqoxl0ci" path="res://resources/sprites/villagers/Owl/OriginalQuality/Untitled_Artwork-1(1).png" id="2_0vqkn"]
@@ -47,6 +47,7 @@ radius = 14.0
 height = 36.0
 
 [node name="Owl" type="CharacterBody2D"]
+collision_layer = 3
 script = ExtResource("1_o1qbr")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

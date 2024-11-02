@@ -1,3 +1,4 @@
 extends Villager
 
-signal give_item(item: String)
+func check_quest():
+	pass

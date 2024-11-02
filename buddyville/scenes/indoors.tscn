@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://bhp0rw87eodek"]
+[gd_scene load_steps=15 format=4 uid="uid://bhp0rw87eodek"]
 
 [ext_resource type="Texture2D" uid="uid://ctrrlu1nieoq7" path="res://resources/sprites/indoors/Tilesheets/roguelikeIndoor_transparent.png" id="1_dkavb"]
 

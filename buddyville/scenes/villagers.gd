@@ -38,7 +38,7 @@ func choose(array):
 
 # villager moving
 func move(delta):
-	position += dir * speed * delta
+	move_and_collide(dir * speed * delta)
 	# bounds for villagers
 	if position.x >= start_pos.x + 50:
 		position.x = start_pos.x + 49.9
@@ -48,6 +48,13 @@ func move(delta):
 		position.y = start_pos.y + 49.9
 	elif position.y <= start_pos.y - 50:
 		position.y = start_pos.y - 49.9 
+	
+	# changes dir villager is facing
+	if dir == Vector2.RIGHT:
+		$AnimatedSprite2D.flip_h = true
+	elif dir == Vector2.LEFT:
+		$AnimatedSprite2D.flip_h = false
+
 
 # chooses random state
 func _on_timer_timeout() -> void:

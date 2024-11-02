@@ -3,9 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://dlkgdkauuen1n" path="res://scenes/map.tscn" id="1_ej20c"]
 [ext_resource type="PackedScene" uid="uid://di6v8ptywu2vl" path="res://scenes/Monkey.tscn" id="2_re01m"]
 [ext_resource type="PackedScene" uid="uid://ehfrk34mqty0" path="res://scenes/player.tscn" id="3_e0kjd"]
-[ext_resource type="PackedScene" path="res://scenes/Owl.tscn" id="4_h7v2v"]
-[ext_resource type="PackedScene" path="res://scenes/Porcupine.tscn" id="5_6pkf2"]
-[ext_resource type="PackedScene" path="res://scenes/Rabbit.tscn" id="6_an1qs"]
+[ext_resource type="PackedScene" uid="uid://sen2li0lcgjt" path="res://scenes/Owl.tscn" id="4_h7v2v"]
+[ext_resource type="PackedScene" uid="uid://druspemd4muet" path="res://scenes/Porcupine.tscn" id="5_6pkf2"]
+[ext_resource type="PackedScene" uid="uid://dh8mgdw2nos5k" path="res://scenes/Rabbit.tscn" id="6_an1qs"]
 
 [node name="Node2D" type="Node2D"]
 

@@ -1,6 +1,7 @@
 extends Node2D
 
 signal give_player(item)
+var interacted = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -13,12 +14,15 @@ func _process(delta):
 
 
 func _on_area_2d_body_entered(body):
-	$Tooltip.visible = true
+	if body != self:
+		$Tooltip.visible = true
 
 
 func _on_area_2d_body_exited(body):
 	$Tooltip.visible = false
 
 func interact():
-	print("apple")
-	emit_signal("give_player", "apple")
+	if !interacted:
+		print("apple")
+		emit_signal("give_player", "apple")
+		interacted = true

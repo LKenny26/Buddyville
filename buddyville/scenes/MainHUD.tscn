@@ -1,0 +1,68 @@
+[gd_scene load_steps=5 format=3 uid="uid://nocfxwe0myl4"]
+
+[ext_resource type="Script" path="res://scenes/main_hud.gd" id="1_m52t1"]
+[ext_resource type="Theme" uid="uid://2ptam2oajy4g" path="res://resources/gameres/ui_theme.tres" id="1_xx2hc"]
+[ext_resource type="Texture2D" uid="uid://d2s8sne0y30nh" path="res://resources/ui/Tilesheets/Large tiles/Thin outline/tilemap_packed.png" id="2_6nf1c"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uln6k"]
+atlas = ExtResource("2_6nf1c")
+region = Rect2(128, 96, 96, 30)
+
+[node name="MainHud" type="CanvasLayer"]
+script = ExtResource("1_m52t1")
+
+[node name="QuestContainer" type="Control" parent="."]
+layout_mode = 3
+anchor_right = 0.15
+anchor_bottom = 0.4
+theme = ExtResource("1_xx2hc")
+
+[node name="Quests" type="Panel" parent="QuestContainer"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.15
+anchor_right = 0.95
+anchor_bottom = 1.0
+theme = ExtResource("1_xx2hc")
+
+[node name="QuestText" type="Label" parent="QuestContainer/Quests"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.1
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 18
+text = "Placeholder
+
+Go back to Panda"
+
+[node name="QuestTitle" type="TextureRect" parent="QuestContainer"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.15
+grow_horizontal = 2
+texture = SubResource("AtlasTexture_uln6k")
+expand_mode = 5
+stretch_mode = 4
+
+[node name="Title" type="Label" parent="QuestContainer/QuestTitle"]
+texture_filter = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_xx2hc")
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 32
+text = "Quests"
+horizontal_alignment = 1
+vertical_alignment = 1

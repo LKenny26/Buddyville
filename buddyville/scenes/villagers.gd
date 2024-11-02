@@ -53,3 +53,6 @@ func move(delta):
 func _on_timer_timeout() -> void:
 	$Timer.wait_time = 0.5
 	curr_state = choose([IDLE, CHOOSE_DIR, MOVING])
+
+func interact():
+	print("Hello!")

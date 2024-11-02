@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
-const speed = 50 # speed villagers move at
+const speed = 30 # speed villagers move at
+var start_pos
 var curr_state = IDLE # state that the villager is in
 var dir = Vector2.RIGHT # direction villager will move in
 
@@ -12,9 +13,10 @@ enum{
 }
 
 func _ready():
-	$AnimatedSprite2D.play()
-	$Timer.start()
-	randomize()
+	$AnimatedSprite2D.play() # start animation
+	$Timer.start() # start timer
+	start_pos = position # set starting position (for bounds)
+	randomize() 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float):
@@ -37,8 +39,17 @@ func choose(array):
 # villager moving
 func move(delta):
 	position += dir * speed * delta
+	# bounds for villagers
+	if position.x >= start_pos.x + 50:
+		position.x = start_pos.x + 49.9
+	elif position.x <= start_pos.x - 50:
+		position.x = start_pos.x - 49.9
+	elif position.y >= start_pos.y + 50:
+		position.y = start_pos.y + 49.9
+	elif position.y <= start_pos.y - 50:
+		position.y = start_pos.y - 49.9 
 
-
+# chooses random state
 func _on_timer_timeout() -> void:
 	print(curr_state)
 	$Timer.wait_time = 0.5

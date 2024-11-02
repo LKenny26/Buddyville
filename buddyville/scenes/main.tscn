@@ -19,9 +19,12 @@ position = Vector2(584, 71)
 
 [node name="Owl" parent="." instance=ExtResource("4_h7v2v")]
 position = Vector2(769, 206)
+collision_layer = 3
 
 [node name="Porcupine" parent="." instance=ExtResource("5_6pkf2")]
 position = Vector2(254, 830)
+collision_layer = 3
 
 [node name="Rabbit" parent="." instance=ExtResource("6_an1qs")]
 position = Vector2(932, 831)
+collision_layer = 3

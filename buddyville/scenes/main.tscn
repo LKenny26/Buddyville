@@ -1,10 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://ugtasvri7j35"]
+[gd_scene load_steps=4 format=3 uid="uid://ugtasvri7j35"]
 
 [ext_resource type="PackedScene" uid="uid://dlkgdkauuen1n" path="res://scenes/map.tscn" id="1_ej20c"]
 [ext_resource type="PackedScene" uid="uid://ru1bibjng8ry" path="res://scenes/Villagers.tscn" id="2_re01m"]
+[ext_resource type="PackedScene" path="res://scenes/player.tscn" id="3_e0kjd"]
 
 [node name="Node2D" type="Node2D"]
 
 [node name="Map" parent="." instance=ExtResource("1_ej20c")]
 
 [node name="Villagers" parent="." instance=ExtResource("2_re01m")]
+position = Vector2(407, 365)
+
+[node name="player" parent="." instance=ExtResource("3_e0kjd")]
+position = Vector2(584, 71)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=95 format=3 uid="uid://du5nghdt8x552"]
+[gd_scene load_steps=95 format=3 uid="uid://ehfrk34mqty0"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_kih5j"]
 [ext_resource type="Texture2D" uid="uid://4oiqi50kk8ho" path="res://resources/sprites/player/Base Character - Free/idle.png" id="2_b4uab"]
@@ -684,7 +684,7 @@ animations = [{
 radius = 36.6879
 
 [node name="player" type="CharacterBody2D"]
-scale = Vector2(4, 4)
+scale = Vector2(3, 3)
 script = ExtResource("1_kih5j")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

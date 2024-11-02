@@ -55,27 +55,27 @@ position = Vector2(866, 473)
 position = Vector2(974, 417)
 
 [node name="door1" type="Area2D" parent="."]
+position = Vector2(96, 120.5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="door1"]
-position = Vector2(96, 120.5)
 shape = SubResource("RectangleShape2D_3pyfg")
 
 [node name="door2" type="Area2D" parent="."]
+position = Vector2(816, 169)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="door2"]
-position = Vector2(816, 169)
 shape = SubResource("RectangleShape2D_lijxv")
 
 [node name="door3" type="Area2D" parent="."]
+position = Vector2(152, 920.5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="door3"]
-position = Vector2(152, 920.5)
 shape = SubResource("RectangleShape2D_rrjc7")
 
 [node name="door4" type="Area2D" parent="."]
+position = Vector2(864.5, 872.5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="door4"]
-position = Vector2(864.5, 872.5)
 shape = SubResource("RectangleShape2D_5fg61")
 
 [connection signal="input_event" from="door1" to="." method="_on_door_1_input_event"]

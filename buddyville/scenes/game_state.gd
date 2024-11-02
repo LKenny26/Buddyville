@@ -13,9 +13,12 @@ enum{
 	AXE
 }
 
-#keeps track of which quest player is on
+# keeps track of which quest player is on
 var game_state = MEET
+# player inventory
 var inventory = []
+# player position when swapping scenes
+var player_spawn_pos = Vector2(1100, 1100)
 
 func next_game_state():
 	self.game_state += 1

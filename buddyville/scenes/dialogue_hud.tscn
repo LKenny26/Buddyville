@@ -1,0 +1,75 @@
+[gd_scene load_steps=5 format=3 uid="uid://bpqp547bt5g8c"]
+
+[ext_resource type="Script" path="res://scenes/dialogue_hud.gd" id="1_8u08i"]
+[ext_resource type="Theme" uid="uid://dfv3ek7sowuah" path="res://resources/gameres/ui_theme.tres" id="1_b2y1u"]
+[ext_resource type="Texture2D" uid="uid://ciu7jjx7k2pq" path="res://resources/ui/Tiles/Large tiles/Thin outline/tile_0029.png" id="2_mbitt"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hfiwf"]
+texture = ExtResource("2_mbitt")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="DialogueHud" type="CanvasLayer"]
+script = ExtResource("1_8u08i")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.00012207
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.25098)
+
+[node name="BottomSection" type="Control" parent="."]
+layout_mode = 3
+anchor_top = 0.6
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("1_b2y1u")
+
+[node name="Body" type="Panel" parent="BottomSection"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.03
+anchor_top = 0.2
+anchor_right = 0.97
+anchor_bottom = 0.9
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("1_b2y1u")
+
+[node name="BodyText" type="Label" parent="BottomSection/Body"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.02
+anchor_top = 0.2
+anchor_right = 0.98
+anchor_bottom = 0.9
+text = "PLACEHOLDER TEXT"
+
+[node name="Title" type="Panel" parent="BottomSection"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.01
+anchor_right = 0.4
+anchor_bottom = 0.3
+theme_override_styles/panel = SubResource("StyleBoxTexture_hfiwf")
+
+[node name="TitleText" type="Label" parent="BottomSection/Title"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.02
+anchor_top = 0.2
+anchor_right = 0.98
+anchor_bottom = 0.8
+theme_override_font_sizes/font_size = 42
+text = "PLACEHOLDER NAME"
+horizontal_alignment = 1

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://ugtasvri7j35"]
+[gd_scene load_steps=8 format=3 uid="uid://ugtasvri7j35"]
 
 [ext_resource type="PackedScene" uid="uid://dlkgdkauuen1n" path="res://scenes/map.tscn" id="1_ej20c"]
 [ext_resource type="PackedScene" uid="uid://ru1bibjng8ry" path="res://scenes/Monkey.tscn" id="2_re01m"]
@@ -6,25 +6,30 @@
 [ext_resource type="PackedScene" uid="uid://daf0e1u4835rl" path="res://scenes/Owl.tscn" id="4_h7v2v"]
 [ext_resource type="PackedScene" uid="uid://c40ij0bcltqal" path="res://scenes/Porcupine.tscn" id="5_6pkf2"]
 [ext_resource type="PackedScene" uid="uid://cgveo3du6coy4" path="res://scenes/Rabbit.tscn" id="6_an1qs"]
+[ext_resource type="PackedScene" path="res://scenes/dialogue_hud.tscn" id="7_dshv0"]
 
 [node name="Node2D" type="Node2D"]
 
 [node name="Map" parent="." instance=ExtResource("1_ej20c")]
+scale = Vector2(2.5, 2.5)
 
 [node name="Monkey" parent="." instance=ExtResource("2_re01m")]
-position = Vector2(168, 144)
+position = Vector2(283, 356)
 
 [node name="player" parent="." instance=ExtResource("3_e0kjd")]
-position = Vector2(584, 71)
+position = Vector2(1159, 1090)
 
 [node name="Owl" parent="." instance=ExtResource("4_h7v2v")]
-position = Vector2(769, 206)
+position = Vector2(2070, 481)
 collision_layer = 3
 
 [node name="Porcupine" parent="." instance=ExtResource("5_6pkf2")]
-position = Vector2(254, 830)
+position = Vector2(548, 2229)
 collision_layer = 3
 
 [node name="Rabbit" parent="." instance=ExtResource("6_an1qs")]
 position = Vector2(932, 831)
 collision_layer = 3
+
+[node name="DialogueHud" parent="." instance=ExtResource("7_dshv0")]
+visible = false

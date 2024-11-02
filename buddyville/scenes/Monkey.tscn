@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://di6v8ptywu2vl"]
+[gd_scene load_steps=12 format=3 uid="uid://ru1bibjng8ry"]
 
 [ext_resource type="Script" path="res://scenes/villagers.gd" id="1_dplr4"]
 [ext_resource type="Texture2D" uid="uid://bkau6d4anw8ey" path="res://resources/sprites/villagers/Monkey/OriginalQuality/Untitled_Artwork-1.png" id="2_hbmud"]

@@ -5,7 +5,7 @@ extends Node2D
 func _ready() -> void:
 	$player.exit.connect(exit_game)
 	$player.pause.connect(minimap_toggle)
-  $player.position = GameState.player_spawn_pos
+	$player.position = GameState.player_spawn_pos
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -17,4 +17,3 @@ func exit_game():
 	
 func minimap_toggle():
 	$MiniMap.visible = !$MiniMap.visible
-

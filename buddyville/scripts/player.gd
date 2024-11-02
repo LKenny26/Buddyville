@@ -23,11 +23,9 @@ func _ready() -> void:
 	add_child(pause_menu)
 	pause_menu.exit_game.connect(exit_pressed)
 	pause_menu.return_game.connect(return_pressed)
+	inventory = GameState.inventory
 
 var inventory = []
-
-func _ready():
-	inventory = GameState.inventory
 
 func _process(delta: float) -> void:
 	

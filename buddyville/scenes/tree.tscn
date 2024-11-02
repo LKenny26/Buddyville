@@ -1,8 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://cfcrqm053wphn"]
+[gd_scene load_steps=7 format=3 uid="uid://cfcrqm053wphn"]
 
 [ext_resource type="Script" path="res://scenes/tree.gd" id="1_o5738"]
 [ext_resource type="Texture2D" uid="uid://cgh4n2n25ym4a" path="res://resources/sprites/outdoors/Spritesheet/roguelikeSheet_transparent.png" id="1_p2did"]
 [ext_resource type="FontFile" uid="uid://db8dyn6qxk2d2" path="res://resources/fonts/BubblegumSans-Regular.ttf" id="3_ws0nx"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_00y1r"]
+radius = 16.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yiydw"]
 atlas = ExtResource("1_p2did")
@@ -11,20 +14,24 @@ region = Rect2(391, 153, 16, 16)
 [sub_resource type="CircleShape2D" id="CircleShape2D_kb1vj"]
 radius = 32.0
 
-[node name="Tree" type="Node2D"]
+[node name="Tree" type="StaticBody2D"]
 texture_filter = 1
 script = ExtResource("1_o5738")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_00y1r")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(2, 2)
 texture = SubResource("AtlasTexture_yiydw")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="InteractableArea2D" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableArea2D"]
 shape = SubResource("CircleShape2D_kb1vj")
 
 [node name="Tooltip" type="Label" parent="."]
+visible = false
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -43,5 +50,5 @@ theme_override_fonts/font = ExtResource("3_ws0nx")
 theme_override_font_sizes/font_size = 18
 text = "Click to hit!"
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="InteractableArea2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="InteractableArea2D" to="." method="_on_area_2d_body_exited"]

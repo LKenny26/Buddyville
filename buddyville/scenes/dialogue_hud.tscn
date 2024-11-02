@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bpqp547bt5g8c"]
 
 [ext_resource type="Script" path="res://scenes/dialogue_hud.gd" id="1_8u08i"]
-[ext_resource type="Theme" uid="uid://dfv3ek7sowuah" path="res://resources/gameres/ui_theme.tres" id="1_b2y1u"]
+[ext_resource type="Theme" uid="uid://2ptam2oajy4g" path="res://resources/gameres/ui_theme.tres" id="1_b2y1u"]
 [ext_resource type="Texture2D" uid="uid://ciu7jjx7k2pq" path="res://resources/ui/Tiles/Large tiles/Thin outline/tile_0029.png" id="2_mbitt"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hfiwf"]

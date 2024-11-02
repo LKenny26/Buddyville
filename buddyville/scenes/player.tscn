@@ -681,7 +681,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ht1qo"]
-radius = 36.6879
+radius = 24.3698
 
 [node name="player" type="CharacterBody2D"]
 scale = Vector2(3, 3)

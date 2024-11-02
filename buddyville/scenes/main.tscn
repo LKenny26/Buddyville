@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://c40ij0bcltqal" path="res://scenes/Porcupine.tscn" id="5_6pkf2"]
 [ext_resource type="PackedScene" uid="uid://cgveo3du6coy4" path="res://scenes/Rabbit.tscn" id="6_an1qs"]
 [ext_resource type="PackedScene" uid="uid://bpqp547bt5g8c" path="res://scenes/dialogue_hud.tscn" id="7_dshv0"]
-[ext_resource type="PackedScene" uid="uid://nocfxwe0myl4" path="res://scenes/MainHUD.tscn" id="9_1bo24"]
+[ext_resource type="PackedScene" uid="uid://cq4qqdpm2ykth" path="res://scenes/MainHUD.tscn" id="9_1bo24"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_1jvmq")

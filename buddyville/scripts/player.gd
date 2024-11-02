@@ -13,7 +13,7 @@ var run = false
 var inventory = []
 
 func _ready():
-	inventory = GameState.inventory
+	pass
 
 func _process(delta: float) -> void:
 	
@@ -72,9 +72,6 @@ func _process(delta: float) -> void:
 		else:
 			get_node("AnimatedSprite2D").play("idle-down")
 	move_and_collide(direction * speed * delta) # cheat to get it to move and collide right
-
-func get_item():
-	inventory.add
 
 func death():
 	set_process(false)

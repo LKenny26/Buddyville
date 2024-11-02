@@ -9,7 +9,6 @@ radius = 16.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yiydw"]
 atlas = ExtResource("1_p2did")
-region = Rect2(391, 153, 16, 16)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kb1vj"]
 radius = 32.0
@@ -25,6 +24,8 @@ shape = SubResource("CircleShape2D_00y1r")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(2, 2)
 texture = SubResource("AtlasTexture_yiydw")
+region_enabled = true
+region_rect = Rect2(391, 153, 17, 17)
 
 [node name="InteractableArea2D" type="Area2D" parent="."]
 

@@ -26,3 +26,4 @@ func interact():
 		print("apple")
 		emit_signal("give_player", "apple")
 		interacted = true
+		$Sprite2D.region_rect = Rect2(221,153,17,17)

@@ -9,6 +9,7 @@ const DOWN = 3
 var speed = 300.0
 var last_dir = LEFT
 var run = false
+var interactable
 
 func _process(delta: float) -> void:
 	
@@ -27,7 +28,6 @@ func _process(delta: float) -> void:
 	if Input.is_action_pressed("Right"):
 		direction.x += 1
 		last_dir = RIGHT
-	
 	
 	if Input.is_action_pressed("Run"):
 		run = true
@@ -67,10 +67,23 @@ func _process(delta: float) -> void:
 			get_node("AnimatedSprite2D").play("idle-up")
 		else:
 			get_node("AnimatedSprite2D").play("idle-down")
-	
 	move_and_collide(direction * speed * delta) # cheat to get it to move and collide right
+	
+	#------------- interaction code -----------------
+	if Input.is_action_just_pressed("Interact"):
+			if interactable != null:
+				print("interact")
+				interactable.interact()
 	
 func death():
 	set_process(false)
 	$AnimatedSprite2D.play("death")
 	queue_free()
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	interactable = body
+	print("entered")
+
+func _on_area_2d_body_exited(body: Node2D) -> void:
+	print("exited")
+	interactable = null

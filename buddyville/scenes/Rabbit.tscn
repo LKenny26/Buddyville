@@ -1,0 +1,63 @@
+[gd_scene load_steps=12 format=3 uid="uid://cgveo3du6coy4"]
+
+[ext_resource type="Script" path="res://scenes/villagers.gd" id="1_mnjga"]
+[ext_resource type="Texture2D" uid="uid://byg3jv86b5kxh" path="res://resources/sprites/villagers/Rabbit/OriginalQuality/Untitled_Artwork-1(2).png" id="2_irgl8"]
+[ext_resource type="Texture2D" uid="uid://cu4yf3qgaecre" path="res://resources/sprites/villagers/Rabbit/OriginalQuality/Untitled_Artwork-2(2).png" id="3_3je6g"]
+[ext_resource type="Texture2D" uid="uid://5k8k46f5j5oh" path="res://resources/sprites/villagers/Rabbit/OriginalQuality/Untitled_Artwork-3(2).png" id="4_1bnd6"]
+[ext_resource type="Texture2D" uid="uid://dwnrt532ewwjo" path="res://resources/sprites/villagers/Rabbit/OriginalQuality/Untitled_Artwork-4(2).png" id="5_m4exc"]
+[ext_resource type="Texture2D" uid="uid://bb3ngxyfim7n4" path="res://resources/sprites/villagers/Rabbit/OriginalQuality/Untitled_Artwork-5(2).png" id="6_383tr"]
+[ext_resource type="Texture2D" uid="uid://chtoorsiwsymd" path="res://resources/sprites/villagers/Rabbit/OriginalQuality/Untitled_Artwork-6(2).png" id="7_3etgh"]
+[ext_resource type="Texture2D" uid="uid://cdllntjpv68qc" path="res://resources/sprites/villagers/Rabbit/OriginalQuality/Untitled_Artwork-7(2).png" id="8_0bupu"]
+[ext_resource type="Texture2D" uid="uid://c11wrwfh7llt1" path="res://resources/sprites/villagers/Rabbit/OriginalQuality/Untitled_Artwork-8(2).png" id="9_py04g"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c1hw7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_irgl8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_3je6g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_1bnd6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_m4exc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_383tr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_3etgh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_0bupu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_py04g")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vojme"]
+radius = 14.0
+height = 36.0
+
+[node name="Rabbit" type="CharacterBody2D"]
+script = ExtResource("1_mnjga")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_c1hw7")
+frame_progress = 0.960124
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 2)
+shape = SubResource("CapsuleShape2D_vojme")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1.5
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

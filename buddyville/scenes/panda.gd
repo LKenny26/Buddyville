@@ -91,6 +91,10 @@ func quest_passed() -> bool:
 		GameState.COMPLETE:
 			GameState.game_state = GameState.COMPLETE
 			dialogue.say("HEHEHEHEHE")
+			var tween = get_tree().create_tween()
+			get_node("../player").process_mode = Node.PROCESS_MODE_DISABLED
+			tween.tween_property(get_node("../player/Dimmer/ColorRect"), "color", Color.BLACK, 1.5)
+			tween.tween_callback(Callable(get_tree(), "change_scene_to_file").bind("res://scenes/end_screen.tscn"))
 			return true
 		_:
 			return true

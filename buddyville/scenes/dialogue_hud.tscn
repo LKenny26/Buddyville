@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cogv1ja5ppqhl"]
+[gd_scene load_steps=8 format=3 uid="uid://ddtjhyjyj14n4"]
 
 [ext_resource type="Script" path="res://scenes/dialogue_hud.gd" id="1_8u08i"]
 [ext_resource type="Theme" uid="uid://xj8wnav5qibl" path="res://resources/gameres/ui_theme.tres" id="1_b2y1u"]

@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://324qmdarrbei" path="res://resources/sprites/villagers/Owl/OriginalQuality/Untitled_Artwork-6(1).png" id="7_msmdb"]
 [ext_resource type="Texture2D" uid="uid://bg1nctreo7qxv" path="res://resources/sprites/villagers/Owl/OriginalQuality/Untitled_Artwork-7(1).png" id="8_5grg7"]
 [ext_resource type="Texture2D" uid="uid://dt1jrv51najum" path="res://resources/sprites/villagers/Owl/OriginalQuality/Untitled_Artwork-8(1).png" id="9_ndksi"]
-[ext_resource type="PackedScene" uid="uid://ddtjhyjyj14n4" path="res://scenes/dialogue_hud.tscn" id="10_80t0r"]
+[ext_resource type="PackedScene" uid="uid://cogv1ja5ppqhl" path="res://scenes/dialogue_hud.tscn" id="10_80t0r"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_pvaww"]
 animations = [{

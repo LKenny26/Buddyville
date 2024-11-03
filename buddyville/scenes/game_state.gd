@@ -54,6 +54,11 @@ var villager_state = {
 	}
 }
 
+var NOT_DUG = 0
+var DUG = 1
+var BURIED = 2
+var grave_state = NOT_DUG
+
 func next_game_state():
 	self.game_state += 1
 

@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://cjh7unjjgfg2j"]
+[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://ci15f7r4r5m23"]
 
 [ext_resource type="Texture2D" uid="uid://cgh4n2n25ym4a" path="res://resources/sprites/outdoors/Spritesheet/roguelikeSheet_transparent.png" id="1_avdi1"]
 
@@ -1305,7 +1305,6 @@ separation = Vector2i(1, 1)
 23:21/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 0, 8, 8, -8, 8)
 24:21/0 = 0
 25:21/0 = 0
-25:21/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 26:21/0 = 0
 27:21/0 = 0
 28:21/0 = 0
@@ -1955,6 +1954,5 @@ separation = Vector2i(1, 1)
 59:31/0 = 0
 
 [resource]
-physics_layer_0/collision_layer = 0
-physics_layer_0/collision_mask = 0
+physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_3ivgm")

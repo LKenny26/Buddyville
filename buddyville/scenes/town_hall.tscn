@@ -1,7 +1,7 @@
-[gd_scene load_steps=10 format=4 uid="uid://b7l1gvl2nieyu"]
+[gd_scene load_steps=10 format=4 uid="uid://ckwuf7kcfojkl"]
 
 [ext_resource type="Script" path="res://scenes/town_hall.gd" id="1_2wyoe"]
-[ext_resource type="TileSet" uid="uid://b0qhxik81xx5d" path="res://resources/gameres/indoor_tileset.tres" id="1_xb00t"]
+[ext_resource type="TileSet" uid="uid://b5ffpv1qnuj5i" path="res://resources/gameres/indoor_tileset.tres" id="1_xb00t"]
 [ext_resource type="Texture2D" uid="uid://ctrrlu1nieoq7" path="res://resources/sprites/indoors/Tilesheets/roguelikeIndoor_transparent.png" id="2_sxah2"]
 [ext_resource type="PackedScene" uid="uid://ehfrk34mqty0" path="res://scenes/player.tscn" id="3_c6blq"]
 [ext_resource type="PackedScene" uid="uid://dr43q7n06rghg" path="res://scenes/Panda.tscn" id="4_h45o7"]

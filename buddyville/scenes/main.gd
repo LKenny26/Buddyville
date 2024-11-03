@@ -23,6 +23,8 @@ func _process(delta: float) -> void:
 	if GameState.grave_state == GameState.BURIED:
 		$hole.visible = false
 		$grave.visible = true
+	if GameState.villager_state["Owl"]["dead"] == true:
+		$unalive_owl.visible = true
 	
 func minimap_toggle():
 	$MiniMap.visible = !$MiniMap.visible

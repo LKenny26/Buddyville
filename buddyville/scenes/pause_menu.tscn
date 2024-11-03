@@ -1,0 +1,68 @@
+[gd_scene load_steps=3 format=3 uid="uid://etb4rgikybxx"]
+
+[ext_resource type="Script" path="res://scenes/pause_menu.gd" id="1_yiwmu"]
+[ext_resource type="Theme" uid="uid://xj8wnav5qibl" path="res://resources/gameres/ui_theme.tres" id="2_6em76"]
+
+[node name="Pause_Menu" type="CanvasLayer"]
+visible = false
+script = ExtResource("1_yiwmu")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = -1.0
+offset_right = 1.00012
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.25098)
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -106.5
+offset_top = -108.0
+offset_right = 106.5
+offset_bottom = 108.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_6em76")
+
+[node name="Return" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.17
+anchor_right = 0.5
+anchor_bottom = 0.17
+offset_left = -51.5
+offset_right = 51.5
+offset_bottom = 31.0
+grow_horizontal = 2
+text = "Return"
+metadata/_edit_use_anchors_ = true
+
+[node name="Exit" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.739
+anchor_right = 0.5
+anchor_bottom = 0.739
+offset_left = -51.5
+offset_top = -31.0
+offset_right = 51.5
+grow_horizontal = 2
+grow_vertical = 0
+text = "Exit"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="Panel/Return" to="." method="_on_return_pressed"]
+[connection signal="pressed" from="Panel/Exit" to="." method="_on_exit_pressed"]

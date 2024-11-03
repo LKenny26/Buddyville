@@ -100,7 +100,10 @@ func _on_area_2d_input_event_monkey(viewport: Node, event: InputEvent, shape_idx
 			dialogue.say("Ooh ooh, a new person !! I'm Manny, I hope we can be friends!")
 			GameState.villager_state["Monkey"]["met"] = true
 			interacted_monkey += 1
-			
+		# after monkey dead
+		elif GameState.villager_state["Monkey"]["dead"]:
+			dialogue.say("(He's a boxing star in my heart)")
+			dialogue.set_title("Petey")
 		# kill monkey
 		elif state == 7:
 			dialogue.say("What's up!  \n ... \n What are you...")
@@ -180,6 +183,7 @@ func _on_area_2d_input_event_porcupine(viewport: Node, event: InputEvent, shape_
 
 func _on_area_2d_input_event_rabbit(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event.is_action_pressed("Interact") && player_close:
+		print(GameState.villager_state)
 		curr_state = TALKING
 		if interacted_rabbit == 0 && state != 5:
 			dialogue.say("Heya, I'm Rosie! Welcome to Buddyville! Why don't you stop by my place sometime? We could have some apples and tea :)")
@@ -187,6 +191,10 @@ func _on_area_2d_input_event_rabbit(viewport: Node, event: InputEvent, shape_idx
 			interacted_rabbit += 1
 			GameState.villager_state["Rabbit"]["met"] = true
 			curr_state = choose([IDLE, CHOOSE_DIR, MOVING])
+		elif GameState.villager_state["Rabbit"]["dead"]:
+			print("DEAD")
+			dialogue.say("(I think she enjoyed it. \n her skin glowing.)")
+			dialogue.set_title("Petey")
 		elif state == 5:
 			dialogue.say("An apple? For me? Thank you so much!")
 			dialogue.set_title("Rosie")
@@ -224,8 +232,8 @@ func _on_done_timer_timeout() -> void:
 	$CanvasLayer/ColorRect.visible = false
 	get_parent().get_node("MiniMap").visible = true
 	if state == 7:
-		dialogue.set_title("(Petey)")
-		dialogue.say("One more to go.....")
+		dialogue.set_title("Petey")
+		dialogue.say("(He's a boxing star in my heart.)")
 	elif state == 5:
-		dialogue.set_title("(Petey)")
-		dialogue.say("Oh no......")
+		dialogue.set_title("Petey")
+		dialogue.say("(I think she enjoyed it. \n her skin glowing.)")

@@ -6,13 +6,13 @@ func _ready() -> void:
 	$player.pause.connect(minimap_toggle)
 	$player.position = GameState.player_spawn_pos
 	if GameState.villager_state["Monkey"]["dead"]:
-		$Monkey.queue_free()
+		$Monkey/AnimatedSprite2D.play("dead_monkey")
 	if GameState.villager_state["Owl"]["dead"]:
 		$Owl.queue_free()
 	if GameState.villager_state["Porcupine"]["dead"]:
 		$Porcupine.queue_free()
 	if GameState.villager_state["Rabbit"]["dead"]:
-		$Rabbit.queue_free()
+		$Rabbit/AnimatedSprite2D.play("rabbit dead")
 	$player.set_quest_window()
 
 

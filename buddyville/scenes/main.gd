@@ -25,6 +25,7 @@ func _process(delta: float) -> void:
 		$grave.visible = true
 	if GameState.villager_state["Owl"]["dead"] == true:
 		$unalive_owl.visible = true
+		$unalive_owl/CollisionShape2D.disabled = false
 	
 func minimap_toggle():
 	$MiniMap.visible = !$MiniMap.visible

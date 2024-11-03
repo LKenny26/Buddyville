@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cq4qqdpm2ykth"]
+[gd_scene load_steps=5 format=3 uid="uid://dkt0w38u04mho"]
 
 [ext_resource type="Script" path="res://scenes/QuestHUD.gd" id="1_m52t1"]
 [ext_resource type="Theme" uid="uid://xj8wnav5qibl" path="res://resources/gameres/ui_theme.tres" id="1_xx2hc"]
@@ -8,7 +8,7 @@
 atlas = ExtResource("2_6nf1c")
 region = Rect2(128, 96, 96, 30)
 
-[node name="MainHud" type="CanvasLayer"]
+[node name="QuestHUD" type="CanvasLayer"]
 script = ExtResource("1_m52t1")
 
 [node name="QuestContainer" type="Control" parent="."]
@@ -36,9 +36,8 @@ anchor_bottom = 0.95
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 18
-text = "Placeholder
-
-Go back to Panda"
+text = "Quests you are doing show up here!"
+autowrap_mode = 3
 
 [node name="QuestTitle" type="TextureRect" parent="QuestContainer"]
 layout_mode = 1

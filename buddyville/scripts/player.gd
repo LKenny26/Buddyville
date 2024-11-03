@@ -6,7 +6,7 @@ const RIGHT = 1
 const UP = 2
 const DOWN = 3
 
-var speed = 300.0
+var speed = 150.0
 var last_dir = LEFT
 var run = false
 var can_move = true
@@ -51,10 +51,10 @@ func _process(delta: float) -> void:
 		
 		if Input.is_action_pressed("Run"):
 			run = true
-			speed = 600
+			speed = 300
 		else:
 			run = false
-			speed = 300
+			speed = 150
 	
 	if direction.length() > 1:
 		direction = direction.normalized()
@@ -109,7 +109,7 @@ func death():
 
 
 func exit_pressed() -> void:
-	emit_signal("exit")
+	get_tree().quit()
 
 
 func return_pressed():

@@ -33,7 +33,7 @@ var game_state = BEAT
 # player inventory
 var inventory = []
 # player position when swapping scenes
-var player_spawn_pos = Vector2(1100, 1100)
+var player_spawn_pos = Vector2(384, 366)
 # villager states
 var villager_state = {
 	"Monkey": {

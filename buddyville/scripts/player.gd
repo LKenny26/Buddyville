@@ -9,7 +9,7 @@ const DOWN = 3
 var speed = 150.0
 var last_dir = LEFT
 var run = false
-var can_move = true
+var can_move = GameState.can_move
 
 signal exit
 signal pause
@@ -17,8 +17,6 @@ signal unpause
 
 var pause_menu_scene = load("res://scenes/pause_menu.tscn")
 var pause_menu
-
-var has_shovel = GameState.has_shovel
 
 func _ready() -> void:
 	pause_menu = pause_menu_scene.instantiate()
@@ -121,3 +119,4 @@ func return_pressed():
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	print(body)
+	

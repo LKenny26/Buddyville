@@ -1,8 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://2v8h1r6kmtfy"]
+[gd_scene load_steps=10 format=3 uid="uid://dijq1tkomecqb"]
 
 [ext_resource type="Script" path="res://scenes/start.gd" id="1_0hlxj"]
 [ext_resource type="PackedScene" uid="uid://ugtasvri7j35" path="res://scenes/main.tscn" id="1_4wnxm"]
-[ext_resource type="Theme" uid="uid://xj8wnav5qibl" path="res://resources/gameres/ui_theme.tres" id="1_akpvl"]
+[ext_resource type="Theme" uid="uid://2ptam2oajy4g" path="res://resources/gameres/ui_theme.tres" id="1_akpvl"]
 [ext_resource type="Texture2D" uid="uid://ulu5htyfwcd5" path="res://resources/ui/Tiles/Large tiles/Thick outline/tile_0019.png" id="4_cgyia"]
 
 [sub_resource type="Animation" id="Animation_jli6x"]

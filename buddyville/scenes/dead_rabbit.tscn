@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://vifnjj3f8a0n"]
+
+[ext_resource type="Texture2D" uid="uid://bxfi4lb2eocuk" path="res://resources/sprites/villagers/Rabbit/OriginalQuality/Untitled_Artwork-1(2) - Copy.png" id="1_21v2a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vo8w3"]
+size = Vector2(56, 33)
+
+[node name="dead_rabbit" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_21v2a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 1.5)
+shape = SubResource("RectangleShape2D_vo8w3")

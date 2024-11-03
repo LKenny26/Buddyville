@@ -2,10 +2,11 @@ extends Node2D
 
 var interacted = false
 var player_close = false
-var has_shovel = GameState.has_shovel
+var sound_player := AudioStreamPlayer.new()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	add_child(sound_player)
 	pass # Replace with function body.
 
 
@@ -31,6 +32,13 @@ func _input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 			GameState.give_item("gold")
 			interacted = true
 			$Sprite2D.region_rect = Rect2(765,170,16,16)
+			var rock_hit = load("res://resources/sfx/rock-hit.mp3")
+			sound_player.stream = rock_hit
+			sound_player.play()
+			await get_tree().create_timer(1).timeout
 			$CollisionShape2D.disabled = true
-			await get_tree().create_timer(0.5).timeout
+			var gold = load("res://resources/sfx/coin-flip-88793.mp3")
+			sound_player.stream = gold
+			sound_player.play()
+			await get_tree().create_timer(1).timeout
 			$Sprite2D.visible = false

@@ -22,14 +22,14 @@ const QUEST_STRINGS = {
 	DIG: "Go dig up some gold!\n\nThen, return to Petey",
 	CHOP: "Go get some wood!\n\nThen, return to Petey",
 	POISON: "Go deliver an 'apple' to Rosie! \n\nThen, return to Petey",
-	BURY: "Oh no! What have you done.\n\n...What have you done?\n\nDig a hole for Paul!",
-	BEAT: "Greet Manny with your hands.\n\n",
-	AXE: "\n\n\nI think Oliver is made out of wood.",
+	BURY: "Oh no! What have you done.\n\n...What have you done?\n\nDig a hole for Paul!\n\nTalk to Paul\n\nThen, return to Petey",
+	BEAT: "Greet Manny with your hands.\n\nThen, return to Petey",
+	AXE: "\n\n\nI think Oliver is made out of wood.\n\nCut him down.\n\nThen, return to Petey",
 	COMPLETE: "\n\n\n ........"
 }
 
 # keeps track of which quest player is on
-var game_state = PRE
+var game_state = COMPLETE
 # player inventory
 var inventory = []
 # player position when swapping scenes
@@ -58,10 +58,7 @@ var NOT_DUG = 0
 var DUG = 1
 var BURIED = 2
 var grave_state = NOT_DUG
-
-var has_axe = true
-var has_shovel = false
-var has_apple = false
+var can_move = true
 
 func next_game_state():
 	game_state = game_state + 1

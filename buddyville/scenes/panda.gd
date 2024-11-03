@@ -3,6 +3,8 @@ extends Villager
 func check_quest():
 	# check current game state
 	match GameState.game_state:
+		GameState.PRE:
+			pass
 		# player must talk to all villagers at least once
 		GameState.MEET:
 			for name in GameState.villager_state:

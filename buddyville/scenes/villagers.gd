@@ -136,12 +136,13 @@ func _on_death_timer_timeout() -> void:
 	GameState.villager_state["Monkey"]["dead"] = true
 	$CanvasLayer/ColorRect.visible = true
 	$AnimatedSprite2D.play("dead_monkey")
-	# toggle mini map
+	get_parent().get_node("MiniMap").visible = false
 	$DeathTimer.stop()
 	$DoneTimer.start(5)
 
 func _on_done_timer_timeout() -> void:
 	$DoneTimer.stop()
 	$CanvasLayer/ColorRect.visible = false
+	get_parent().get_node("MiniMap").visible = true
 	dialogue.set_title("(Petey)")
 	dialogue.say("One more to go.....")

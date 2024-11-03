@@ -24,7 +24,6 @@ func _ready() -> void:
 	pause_menu.exit_game.connect(exit_pressed)
 	pause_menu.return_game.connect(return_pressed)
 	inventory = GameState.inventory
-	set_quest_window()
 
 var inventory = []
 
@@ -97,6 +96,7 @@ func _process(delta: float) -> void:
 
 func set_quest_window():
 	$QuestHUD.update_quest(GameState.QUEST_STRINGS[GameState.game_state])
+	print(GameState.game_state)
 
 func death():
 	set_process(false)

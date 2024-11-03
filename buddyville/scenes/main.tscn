@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://ugtasvri7j35"]
+[gd_scene load_steps=15 format=3 uid="uid://ugtasvri7j35"]
 
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_1jvmq"]
 [ext_resource type="PackedScene" uid="uid://dlkgdkauuen1n" path="res://scenes/map.tscn" id="1_ej20c"]
@@ -11,11 +11,12 @@
 [ext_resource type="PackedScene" uid="uid://cogv1ja5ppqhl" path="res://scenes/dialogue_hud.tscn" id="7_dshv0"]
 [ext_resource type="PackedScene" uid="uid://vkpyypyk1cu6" path="res://scenes/mini_map.tscn" id="9_omdnr"]
 [ext_resource type="TileSet" uid="uid://cjh7unjjgfg2j" path="res://resources/gameres/outside-tileset.tres" id="10_h5kra"]
-[ext_resource type="PackedScene" uid="uid://dqe70irbmge72" path="res://scenes/unalive_owl.tscn" id="12_xemxu"]
+[ext_resource type="PackedScene" uid="uid://ch2fitsjwnk1o" path="res://scenes/unalive_owl.tscn" id="12_xemxu"]
+[ext_resource type="FontFile" uid="uid://db8dyn6qxk2d2" path="res://resources/fonts/BubblegumSans-Regular.ttf" id="14_32jrk"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v6jhy"]
-radius = 7.0
-height = 32.0
+radius = 32.0
+height = 64.0
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_1jvmq")
@@ -78,4 +79,27 @@ collision_layer = 2
 position = Vector2(232, 912)
 shape = SubResource("CapsuleShape2D_v6jhy")
 
+[node name="Tooltip" type="Label" parent="dirt"]
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 195.0
+offset_top = 880.0
+offset_right = 273.0
+offset_bottom = 903.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_constants/shadow_outline_size = 2
+theme_override_fonts/font = ExtResource("14_32jrk")
+theme_override_font_sizes/font_size = 18
+text = "Click to dig!"
+
+[connection signal="body_entered" from="dirt" to="." method="_on_dirt_body_entered"]
+[connection signal="body_exited" from="dirt" to="." method="_on_dirt_body_exited"]
 [connection signal="input_event" from="dirt" to="." method="_on_dirt_input_event"]

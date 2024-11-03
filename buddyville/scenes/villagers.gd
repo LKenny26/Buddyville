@@ -63,6 +63,7 @@ func _process(delta: float):
 func choose(array):
 	array.shuffle()
 	return array.front()
+		
 
 # villager moving
 func move(delta):
@@ -114,7 +115,6 @@ func _on_area_2d_input_event_monkey(viewport: Node, event: InputEvent, shape_idx
 			dialogue.say(choose(lines))
 			
 	curr_state = choose([IDLE, CHOOSE_DIR, MOVING])
-		
 
 func _on_area_2d_input_event_owl(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event.is_action_pressed("Interact") && player_close:

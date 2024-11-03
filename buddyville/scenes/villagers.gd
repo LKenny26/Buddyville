@@ -116,6 +116,7 @@ func _on_area_2d_input_event_monkey(viewport: Node, event: InputEvent, shape_idx
 			dialogue.set_title("Petey")
 		# kill monkey
 		elif state == 7:
+			get_parent().get_node("AudioStreamPlayer2D").stop()
 			dialogue.say("What's up!  \n ... \n What are you...")
 			if $DeathTimer.is_stopped():
 				$DeathTimer.start(2)
@@ -130,6 +131,7 @@ func _on_area_2d_input_event_owl(viewport: Node, event: InputEvent, shape_idx: i
 	if event.is_action_pressed("Interact") && player_close:
 		dialogue.set_title("Oliver")
 		if GameState.game_state == GameState.AXE:
+			get_parent().get_node("AudioStreamPlayer2D").stop()
 			curr_state = TALKING
 			dialogue.say("Did ya chop down those trees? Wait what are you.....")
 			dialogue.set_title("Oliver")
@@ -143,6 +145,7 @@ func _on_area_2d_input_event_owl(viewport: Node, event: InputEvent, shape_idx: i
 			GameState.villager_state["Owl"]["dead"] = true
 			queue_free()
 			$Blackout.visible = false
+			get_parent().get_node("AudioStreamPlayer2D").play()
 		elif interacted_owl == 0:
 			curr_state = TALKING
 			dialogue.say("Hi! I'm Oliver, nice to meet you! I've never seen you around before. Welcome to Buddyville!")
@@ -159,6 +162,7 @@ func _on_area_2d_input_event_porcupine(viewport: Node, event: InputEvent, shape_
 	if event.is_action_pressed("Interact") && player_close:
 		dialogue.set_title("Paul")
 		if GameState.grave_state == GameState.DUG && GameState.game_state == GameState.BURY:
+			get_parent().get_node("AudioStreamPlayer2D").stop()
 			curr_state = TALKING
 			dialogue.say("Hey... why did you dig that hole?")
 			dialogue.set_title("Paul")
@@ -178,6 +182,7 @@ func _on_area_2d_input_event_porcupine(viewport: Node, event: InputEvent, shape_
 			sound_player.play()
 			await get_tree().create_timer(7).timeout
 			$Blackout.visible = false
+			get_parent().get_node("AudioStreamPlayer2D").play()
 			GameState.grave_state = GameState.BURIED
 			GameState.villager_state["Porcupine"]["dead"] = true
 			queue_free()
@@ -209,6 +214,7 @@ func _on_area_2d_input_event_rabbit(viewport: Node, event: InputEvent, shape_idx
 			dialogue.say("(I think she enjoyed it. \n her skin glowing.)")
 			dialogue.set_title("Petey")
 		elif state == 5:
+			get_parent().get_node("AudioStreamPlayer2D").stop()
 			dialogue.say("An apple? For me? Thank you so much!")
 			dialogue.set_title("Rosie")
 			if $DeathTimer.is_stopped():
@@ -245,6 +251,7 @@ func _on_done_timer_timeout() -> void:
 	$DoneTimer.stop()
 	$CanvasLayer/ColorRect.visible = false
 	get_parent().get_node("MiniMap").visible = true
+	get_parent().get_node("AudioStreamPlayer2D").play()
 	if state == 7:
 		dialogue.set_title("Petey")
 		dialogue.say("(He's a boxing star in my heart.)")

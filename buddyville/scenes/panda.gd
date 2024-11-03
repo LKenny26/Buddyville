@@ -89,6 +89,8 @@ func quest_passed() -> bool:
 			emit_signal("update_quest")
 			return true
 		GameState.COMPLETE:
+			GameState.game_state = GameState.COMPLETE
+			dialogue.say("HEHEHEHEHE")
 			return true
 		_:
 			return true

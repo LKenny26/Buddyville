@@ -58,3 +58,4 @@ func _on_dirt_body_entered(body: Node2D) -> void:
 func _on_dirt_body_exited(body: Node2D) -> void:
 	$dirt/Tooltip.visible = false
 	player_close = false
+		

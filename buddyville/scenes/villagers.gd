@@ -10,11 +10,15 @@ var interacted_monkey = 0
 var interacted_owl = 0
 var interacted_porcupine = 0
 var interacted_rabbit = 0
+var sound_player := AudioStreamPlayer.new()
+
+
 
 
 var lines = ["How's your day going? Mine is going great!", 
 "Every day is a good day in Buddyville :)",
 "Have you met everybody on the island yet? They're really nice animals",
+"I heard there's gold at the mines!",
 "I could really go for some fresh fruit right now... Good thing there's some apple trees nearby!",
 "This is all a simulation. Wake up."]
 
@@ -29,7 +33,8 @@ func _ready():
 	$AnimatedSprite2D.play() # start animation
 	$Timer.start() # start timer
 	start_pos = position # set starting position (for bounds)
-	randomize() 
+	randomize()
+	add_child(sound_player) 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float):
@@ -100,6 +105,14 @@ func _on_area_2d_input_event_porcupine(viewport: Node, event: InputEvent, shape_
 			dialogue.set_title("Paul")
 			await get_tree().create_timer(3).timeout
 			$Blackout.visible = true
+			var shovel_hit = load("res://resources/porcupine_death/hit-sound-effect-240898.mp3")
+			sound_player.stream = shovel_hit
+			await get_tree().create_timer(0.5).timeout
+			sound_player.play()
+			await get_tree().create_timer(4).timeout
+			var drag = load("res://resources/porcupine_death/footstep-drag-indoors-104989.mp3")
+			sound_player.stream = drag
+			sound_player.play()
 			await get_tree().create_timer(5).timeout
 			$Blackout.visible = false
 			GameState.grave_state = GameState.BURIED

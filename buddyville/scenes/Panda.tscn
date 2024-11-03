@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dr43q7n06rghg"]
+[gd_scene load_steps=9 format=3 uid="uid://jx3iefik11fy"]
 
 [ext_resource type="Script" path="res://scenes/panda.gd" id="1_qwq17"]
 [ext_resource type="PackedScene" uid="uid://ru1bibjng8ry" path="res://scenes/Monkey.tscn" id="1_sg4ir"]
@@ -53,3 +53,5 @@ flip_h = true
 
 [node name="CollisionShape2D" parent="." index="1"]
 position = Vector2(-1, 0)
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

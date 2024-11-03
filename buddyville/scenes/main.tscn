@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://ddtjhyjyj14n4" path="res://scenes/dialogue_hud.tscn" id="7_dshv0"]
 [ext_resource type="PackedScene" path="res://scenes/mini_map.tscn" id="9_omdnr"]
 [ext_resource type="TileSet" uid="uid://cjh7unjjgfg2j" path="res://resources/gameres/outside-tileset.tres" id="10_h5kra"]
-[ext_resource type="PackedScene" path="res://scenes/unalive_owl.tscn" id="12_xemxu"]
+[ext_resource type="PackedScene" uid="uid://dqe70irbmge72" path="res://scenes/unalive_owl.tscn" id="12_xemxu"]
 [ext_resource type="AudioStream" uid="uid://drglkknj66tl1" path="res://resources/sfx/POL-wonder-place-short.wav" id="13_773ra"]
 [ext_resource type="FontFile" uid="uid://db8dyn6qxk2d2" path="res://resources/fonts/BubblegumSans-Regular.ttf" id="14_32jrk"]
 

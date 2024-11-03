@@ -3,7 +3,7 @@
 [ext_resource type="TileSet" uid="uid://cjh7unjjgfg2j" path="res://resources/gameres/outside-tileset.tres" id="1_p71v4"]
 [ext_resource type="Script" path="res://scenes/map.gd" id="1_pkbxi"]
 [ext_resource type="PackedScene" uid="uid://cfcrqm053wphn" path="res://scenes/tree.tscn" id="2_jgyip"]
-[ext_resource type="PackedScene" uid="uid://bqdysqfrh8bx7" path="res://scenes/rock.tscn" id="3_4748e"]
+[ext_resource type="PackedScene" path="res://scenes/rock.tscn" id="3_4748e"]
 [ext_resource type="AudioStream" uid="uid://cdgatrbquibum" path="res://resources/sfx/door-2-close.mp3" id="5_6aq5e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3pyfg"]

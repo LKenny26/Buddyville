@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://dlkgdkauuen1n"]
+[gd_scene load_steps=9 format=4 uid="uid://dlkgdkauuen1n"]
 
 [ext_resource type="TileSet" uid="uid://cjh7unjjgfg2j" path="res://resources/gameres/outside-tileset.tres" id="1_p71v4"]
 [ext_resource type="Script" path="res://scenes/map.gd" id="1_pkbxi"]
@@ -15,6 +15,9 @@ size = Vector2(14, 15)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5fg61"]
 size = Vector2(21, 15)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v3qr7"]
+size = Vector2(20, 16)
 
 [node name="Map" type="Node2D"]
 texture_filter = 1
@@ -78,7 +81,14 @@ position = Vector2(864.5, 872.5)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="door4"]
 shape = SubResource("RectangleShape2D_5fg61")
 
+[node name="door_townhall" type="Area2D" parent="."]
+position = Vector2(384, 344)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="door_townhall"]
+shape = SubResource("RectangleShape2D_v3qr7")
+
 [connection signal="input_event" from="door1" to="." method="_on_door_1_input_event"]
 [connection signal="input_event" from="door2" to="." method="_on_door_2_input_event"]
 [connection signal="input_event" from="door3" to="." method="_on_door_3_input_event"]
 [connection signal="input_event" from="door4" to="." method="_on_door_4_input_event"]
+[connection signal="input_event" from="door_townhall" to="." method="_on_door_townhall_input_event"]

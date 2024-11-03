@@ -62,3 +62,6 @@ func check_quest():
 # func to alert the player they have not completed the quest
 func no_pass():
 	pass
+	
+func _process(delta: float):
+	pass

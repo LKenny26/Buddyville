@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://ugtasvri7j35"]
+[gd_scene load_steps=10 format=3 uid="uid://ugtasvri7j35"]
 
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_1jvmq"]
 [ext_resource type="PackedScene" uid="uid://dlkgdkauuen1n" path="res://scenes/map.tscn" id="1_ej20c"]
@@ -39,5 +39,3 @@ visible = false
 [node name="MiniMap" parent="." node_paths=PackedStringArray("player", "tileMap") instance=ExtResource("9_omdnr")]
 player = NodePath("../player")
 tileMap = NodePath("../Map")
-
-[node name="MainHud" parent="." instance=ExtResource("9_1bo24")]

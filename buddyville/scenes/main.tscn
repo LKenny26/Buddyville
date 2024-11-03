@@ -16,24 +16,23 @@ script = ExtResource("1_1jvmq")
 [node name="Map" parent="." instance=ExtResource("1_ej20c")]
 
 [node name="Monkey" parent="." instance=ExtResource("2_re01m")]
-position = Vector2(283, 356)
+position = Vector2(81, 217)
 scale = Vector2(0.4, 0.4)
 collision_layer = 1
 
 [node name="player" parent="." instance=ExtResource("3_e0kjd")]
-position = Vector2(455, 721)
-scale = Vector2(1, 1)
+position = Vector2(384, 366)
 
 [node name="Owl" parent="." instance=ExtResource("4_h7v2v")]
-position = Vector2(2070, 481)
+position = Vector2(805, 232)
 scale = Vector2(0.4, 0.4)
 
 [node name="Porcupine" parent="." instance=ExtResource("5_6pkf2")]
-position = Vector2(548, 2229)
+position = Vector2(174, 942)
 scale = Vector2(0.4, 0.4)
 
 [node name="Rabbit" parent="." instance=ExtResource("6_an1qs")]
-position = Vector2(2258, 2271)
+position = Vector2(855, 914)
 scale = Vector2(0.4, 0.4)
 
 [node name="DialogueHud" parent="." instance=ExtResource("7_dshv0")]

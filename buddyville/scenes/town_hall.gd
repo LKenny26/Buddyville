@@ -23,3 +23,4 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		tween.tween_callback(func(): main.get_node("./MiniMap").visible = true; main.get_node("./player/QuestHUD").visible = true; main.visible = true; main.get_node("./player").process_mode = Node.PROCESS_MODE_ALWAYS)
 		tween.tween_callback(Callable(self, "queue_free"))
 		tween.tween_callback(func(): get_tree().current_scene = main)
+	

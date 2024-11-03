@@ -10,12 +10,14 @@ func _ready() -> void:
 	$player.pause.connect(minimap_toggle)
 	$player.position = GameState.player_spawn_pos
 	if GameState.villager_state["Monkey"]["dead"]:
+		GameState.villager_state["Monkey"]["met"] = true
 		$Monkey/AnimatedSprite2D.play("dead_monkey")
 	if GameState.villager_state["Owl"]["dead"]:
 		$Owl.queue_free()
 	if GameState.villager_state["Porcupine"]["dead"]:
 		$Porcupine.queue_free()
 	if GameState.villager_state["Rabbit"]["dead"]:
+		GameState.villager_state["Rabbit"]["met"] = true
 		$Rabbit/AnimatedSprite2D.play("rabbit dead")
 	$player.set_quest_window()
 	$AudioStreamPlayer2D.play()

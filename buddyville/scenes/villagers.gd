@@ -84,6 +84,7 @@ func _on_area_2d_input_event_monkey(viewport: Node, event: InputEvent, shape_idx
 			dialogue.say("Ooh ooh, a new person !! I'm Manny, I hope we can be friends!")
 			dialogue.set_title("Manny")
 			interacted_monkey += 1
+			GameState.villager_state["Monkey"]["met"] = true
 		else:
 			dialogue.say(choose(lines))
 		
@@ -94,6 +95,7 @@ func _on_area_2d_input_event_owl(viewport: Node, event: InputEvent, shape_idx: i
 			dialogue.say("Hi! I'm Oliver, nice to meet you! I've never seen you around before. Welcome to Buddyville!")
 			dialogue.set_title("Oliver")
 			interacted_owl += 1
+			GameState.villager_state["Owl"]["met"] = true
 		else:
 			dialogue.say(choose(lines))
 		
@@ -127,6 +129,7 @@ func _on_area_2d_input_event_porcupine(viewport: Node, event: InputEvent, shape_
 			dialogue.say("You must be the new person everybody's talking about! My name's Paul. I hope to see you around!")
 			dialogue.set_title("Paul")
 			interacted_porcupine += 1
+			GameState.villager_state["Porcupine"]["met"] = true
 		else:
 			dialogue.say(choose(lines))
 
@@ -136,6 +139,7 @@ func _on_area_2d_input_event_rabbit(viewport: Node, event: InputEvent, shape_idx
 			dialogue.say("Heya, I'm Rosie! Welcome to Buddyville! Why don't you stop by my place sometime? We could have some apples and tea :)")
 			dialogue.set_title("Rosie")
 			interacted_rabbit += 1
+			GameState.villager_state["Rabbit"]["met"] = true
 		else:
 			dialogue.say(choose(lines))
 	

@@ -51,7 +51,7 @@ func _process(delta: float) -> void:
 		
 		if Input.is_action_pressed("Run"):
 			run = true
-			speed = 300
+			speed = 200
 		else:
 			run = false
 			speed = 150

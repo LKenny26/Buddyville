@@ -29,7 +29,7 @@ const QUEST_STRINGS = {
 }
 
 # keeps track of which quest player is on
-var game_state = PRE
+var game_state = COMPLETE
 # player inventory
 var inventory = []
 # player position when swapping scenes

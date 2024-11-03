@@ -50,7 +50,7 @@ func _on_dirt_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> 
 
 
 func _on_dirt_body_entered(body: Node2D) -> void:
-	if body == $player && GameState.grave_state == GameState.NOT_DUG:
+	if body == $player && GameState.game_state == GameState.BURY:
 		$dirt/Tooltip.visible = true
 		player_close = true
 
@@ -58,3 +58,4 @@ func _on_dirt_body_entered(body: Node2D) -> void:
 func _on_dirt_body_exited(body: Node2D) -> void:
 	$dirt/Tooltip.visible = false
 	player_close = false
+		

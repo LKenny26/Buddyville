@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bqdysqfrh8bx7"]
+[gd_scene load_steps=7 format=3 uid="uid://nk04kbpb5tr0"]
 
 [ext_resource type="Script" path="res://scenes/rock.gd" id="1_4ldsa"]
 [ext_resource type="Texture2D" uid="uid://cgh4n2n25ym4a" path="res://resources/sprites/outdoors/Spritesheet/roguelikeSheet_transparent.png" id="1_mtmh8"]

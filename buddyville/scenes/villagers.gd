@@ -7,10 +7,11 @@ var dir = Vector2.RIGHT # direction villager will move in
 var player_close = false # if the player is close to villager
 @onready var dialogue = $DialogueHud
 var interacted_monkey = 0
+var punch_monkey = 0
 var interacted_owl = 0
 var interacted_porcupine = 0
 var interacted_rabbit = 0
-
+var state = GameState.game_state # game state
 
 var lines = ["How's your day going? Mine is going great!", 
 "Every day is a good day in Buddyville :)",
@@ -28,6 +29,7 @@ enum{
 func _ready():
 	$AnimatedSprite2D.play() # start animation
 	$Timer.start() # start timer
+	
 	start_pos = position # set starting position (for bounds)
 	randomize() 
 
@@ -75,10 +77,16 @@ func _on_timer_timeout() -> void:
 
 func _on_area_2d_input_event_monkey(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event.is_action_pressed("Interact") && player_close:
-		if interacted_monkey == 0:
+		# meet monkey
+		dialogue.set_title("Manny")
+		if interacted_monkey == 0 && state != 7:
 			dialogue.say("Ooh ooh, a new person !! I'm Manny, I hope we can be friends!")
-			dialogue.set_title("Manny")
 			interacted_monkey += 1
+		# kill monkey
+		elif state == 7:
+			dialogue.say("What's up!  \n ... \n What are you...")
+			$DeathTimer.start(2)
+		# any other interaction w/ monkey
 		else:
 			dialogue.say(choose(lines))
 		
@@ -116,4 +124,14 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	player_close = false
-	
+
+func _on_death_timer_timeout() -> void:
+	$CanvasLayer/ColorRect.visible = true
+	$DeathTimer.stop()
+	$DoneTimer.start(5)
+
+func _on_done_timer_timeout() -> void:
+	$DoneTimer.stop()
+	$CanvasLayer/ColorRect.visible = false
+	dialogue.set_title("(Petey)")
+	dialogue.say("One more to go.....")

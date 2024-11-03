@@ -8,8 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://cknprhjjdml6d" path="res://resources/items/Blood.png" id="4_udx1i"]
 [ext_resource type="PackedScene" uid="uid://c40ij0bcltqal" path="res://scenes/Porcupine.tscn" id="5_6pkf2"]
 [ext_resource type="PackedScene" uid="uid://cgveo3du6coy4" path="res://scenes/Rabbit.tscn" id="6_an1qs"]
-[ext_resource type="PackedScene" uid="uid://cogv1ja5ppqhl" path="res://scenes/dialogue_hud.tscn" id="7_dshv0"]
-[ext_resource type="PackedScene" uid="uid://vkpyypyk1cu6" path="res://scenes/mini_map.tscn" id="9_omdnr"]
+[ext_resource type="PackedScene" uid="uid://ddtjhyjyj14n4" path="res://scenes/dialogue_hud.tscn" id="7_dshv0"]
+[ext_resource type="PackedScene" path="res://scenes/mini_map.tscn" id="9_omdnr"]
 [ext_resource type="TileSet" uid="uid://cjh7unjjgfg2j" path="res://resources/gameres/outside-tileset.tres" id="10_h5kra"]
 [ext_resource type="PackedScene" uid="uid://ch2fitsjwnk1o" path="res://scenes/unalive_owl.tscn" id="12_xemxu"]
 

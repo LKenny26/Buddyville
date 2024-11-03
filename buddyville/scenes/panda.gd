@@ -1,6 +1,7 @@
 extends Villager
 
 var first_dialogue = true
+signal update_quest()
 
 func _ready():
 	pass
@@ -12,6 +13,7 @@ func quest_passed() -> bool:
 			dialogue.say("Welcome to Buddyville! Your first quest is to say hello to everyone on the island! Good luck friend!")
 			# continue to next game state if check successful
 			GameState.next_game_state()
+			emit_signal("update_quest")
 			return true
 		# player must talk to all villagers at least once
 		GameState.MEET:
@@ -20,6 +22,7 @@ func quest_passed() -> bool:
 					return false
 			dialogue.say("Everyone is nice here right? \n Here at Buddyville we have our own apple orchard! Go collect an apple now!")
 			GameState.next_game_state()
+			emit_signal("update_quest")
 			return true
 		# player must collect an apple
 		GameState.COLLECT:
@@ -29,6 +32,7 @@ func quest_passed() -> bool:
 				GameState.give_item("shovel")
 				dialogue.say("Nice work! There is a lot of buried treasure here at Buddyville! Go dig up something shiny!")
 				GameState.next_game_state()
+				emit_signal("update_quest")
 				return true
 		# player must dig to collect gold
 		GameState.DIG:
@@ -38,6 +42,7 @@ func quest_passed() -> bool:
 				GameState.give_item("axe")
 				dialogue.say("You can also chop down trees here for some wood! Here's an axe for you!")
 				GameState.next_game_state()
+				emit_signal("update_quest")
 				return true
 		# player must chop a tree to collect wood
 		GameState.CHOP:
@@ -49,6 +54,7 @@ func quest_passed() -> bool:
 				GameState.give_item("poison apple")
 				dialogue.say("Awesome work! I replaced one of your apples with an EXTRA tasty one! Go give it to Rosie as a gift!")
 				GameState.next_game_state()
+				emit_signal("update_quest")
 				return true
 		# player must poison an apple and kill the rabbit with it
 		GameState.POISON:
@@ -56,6 +62,7 @@ func quest_passed() -> bool:
 				return false
 			dialogue.say("Great work buddy! I hope Rosie enjoyed that apple. Go dig a hole for Paul.")
 			GameState.next_game_state()
+			emit_signal("update_quest")
 			return true
 		# player must bury the porcupine
 		GameState.BURY:
@@ -63,6 +70,7 @@ func quest_passed() -> bool:
 				return false
 			dialogue.say("Manny wants to be a boxing star.")
 			GameState.next_game_state()
+			emit_signal("update_quest")
 			return true
 		# player must beat the monkey to death
 		GameState.BEAT:
@@ -70,6 +78,7 @@ func quest_passed() -> bool:
 				return false
 			dialogue.say("Kill Oliver.")
 			GameState.next_game_state()
+			emit_signal("update_quest")
 			return true
 		# player must murder the owl with the axe
 		GameState.AXE:
@@ -77,6 +86,7 @@ func quest_passed() -> bool:
 				return false
 			dialogue.say("Good job.")
 			GameState.next_game_state()
+			emit_signal("update_quest")
 			return true
 		GameState.COMPLETE:
 			return true
@@ -91,8 +101,8 @@ func _process(delta: float):
 	pass
 
 func _on_area_2d_input_event(viewport, event, shape_idx):
-	print(GameState.game_state)
 	if event.is_action_pressed("Interact") && player_close:
 		dialogue.set_title("Petey")
-		print(quest_passed())
+		if !quest_passed():
+			no_pass()
 		

@@ -13,6 +13,7 @@ func _ready() -> void:
 		$Porcupine.queue_free()
 	if GameState.villager_state["Rabbit"]["dead"]:
 		$Rabbit.queue_free()
+	$player.set_quest_window()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

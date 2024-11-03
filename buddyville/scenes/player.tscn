@@ -694,7 +694,7 @@ shape = SubResource("CapsuleShape2D_0adrg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_sfdn8")
-animation = &"walk-up"
+animation = &"death"
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 128

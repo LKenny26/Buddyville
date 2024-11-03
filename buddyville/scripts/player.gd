@@ -27,8 +27,10 @@ func _ready() -> void:
 	pause_menu.return_game.connect(return_pressed)
 	
 	inventory = GameState.inventory
+	state = GameState.game_state
 
 var inventory = []
+var state
 
 func _process(delta: float) -> void:
 	
@@ -89,6 +91,7 @@ func _process(delta: float) -> void:
 			get_node("AnimatedSprite2D").play("idle-down")
 	move_and_collide(direction * speed * delta) # cheat to get it to move and collide right
 	
+			
 	#---------------- Pause Menu ----------------------
 	if Input.is_action_just_pressed("escape"):
 		emit_signal("pause")

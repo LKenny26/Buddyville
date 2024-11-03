@@ -10,6 +10,8 @@ var miniMapPlayer
 
 func _ready() -> void:
 	miniMapPlayer = player.duplicate()
+	miniMapPlayer.get_node("QuestHUD").queue_free()
+	miniMapPlayer.get_node("Pause_Menu").queue_free()
 	
 	sub_viewport.add_child(tileMap.duplicate())
 	sub_viewport.add_child(miniMapPlayer)

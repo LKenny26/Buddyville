@@ -1,6 +1,5 @@
 extends Node2D
 
-signal give_player(item)
 var interacted = false
 var player_close = false
 
@@ -28,6 +27,6 @@ func _input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event.is_action_pressed("Interact"):
 		if !interacted && player_close:
 			print("apple")
-			emit_signal("give_player", "apple")
+			GameState.give_item("apple")
 			interacted = true
 			$Sprite2D.region_rect = Rect2(221,153,17,17)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://c40ij0bcltqal"]
+[gd_scene load_steps=14 format=3 uid="uid://c40ij0bcltqal"]
 
 [ext_resource type="Script" path="res://scenes/villagers.gd" id="1_jqn48"]
 [ext_resource type="Texture2D" uid="uid://b3g2aro7jcj7c" path="res://resources/sprites/villagers/Porcupine/OriginalQuality/Untitled_Artwork-1.png" id="2_4ag87"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cv7bfw0vk3d73" path="res://resources/sprites/villagers/Porcupine/OriginalQuality/Untitled_Artwork-6.png" id="7_eiurj"]
 [ext_resource type="Texture2D" uid="uid://b8whrp5yuypty" path="res://resources/sprites/villagers/Porcupine/OriginalQuality/Untitled_Artwork-7.png" id="8_taymw"]
 [ext_resource type="Texture2D" uid="uid://dnh34ewdp18jt" path="res://resources/sprites/villagers/Porcupine/OriginalQuality/Untitled_Artwork-8.png" id="9_w7eoo"]
+[ext_resource type="PackedScene" uid="uid://ddtjhyjyj14n4" path="res://scenes/dialogue_hud.tscn" id="10_adcg4"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8qjos"]
 animations = [{
@@ -69,6 +70,8 @@ wait_time = 1.5
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(-1, 2)
 shape = SubResource("CircleShape2D_81ln7")
+
+[node name="DialogueHud" parent="." instance=ExtResource("10_adcg4")]
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

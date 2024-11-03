@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://ddtjhyjyj14n4"]
+[gd_scene load_steps=9 format=3 uid="uid://ddtjhyjyj14n4"]
 
 [ext_resource type="Script" path="res://scenes/dialogue_hud.gd" id="1_8u08i"]
 [ext_resource type="Theme" uid="uid://2ptam2oajy4g" path="res://resources/gameres/ui_theme.tres" id="1_b2y1u"]
 [ext_resource type="Texture2D" uid="uid://ciu7jjx7k2pq" path="res://resources/ui/Tiles/Large tiles/Thin outline/tile_0029.png" id="2_mbitt"]
+[ext_resource type="Script" path="res://scenes/animation_player.gd" id="3_ypj5g"]
 
 [sub_resource type="Animation" id="Animation_wt0kh"]
 resource_name = "new_animation"
@@ -95,20 +96,11 @@ text = "PLACEHOLDER TEXT"
 visible_characters = 0
 visible_ratio = 0.0
 
-[node name="Next" type="Label" parent="BottomSection/Body"]
-layout_mode = 0
-offset_left = 1000.44
-offset_top = 140.36
-offset_right = 1074.44
-offset_bottom = 176.36
-theme_override_font_sizes/font_size = 30
-text = "[Enter]"
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="BottomSection/Body"]
 libraries = {
 "": SubResource("AnimationLibrary_fq8mf")
 }
-speed_scale = 3.0
+script = ExtResource("3_ypj5g")
 
 [node name="Title" type="Panel" parent="BottomSection"]
 layout_mode = 1

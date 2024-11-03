@@ -4,6 +4,8 @@ extends CanvasLayer
 @onready var box = $BottomSection
 @onready var body_text = $BottomSection/Body/BodyText
 @onready var title_text = $BottomSection/Title/TitleText
+@onready var text_animation = $BottomSection/Body/AnimationPlayer
+@onready var next = $BottomSection/Body/Next
 
 var curr_state = START
 
@@ -18,8 +20,6 @@ enum{
 func _ready():
 	print("START")
 	hide_all()
-	say("some random text")
-	set_title("ooga booga")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -27,21 +27,28 @@ func _process(delta):
 		START:
 			pass
 		READING:
-			pass
-		DONE:
-			if Input.is_action_just_pressed("Interact"):
+			text_animation.play("new_animation")
+			if Input.is_action_just_pressed("Next"): # skips reading
+				$BottomSection/Body/AnimationPlayer.seek(2.0)
+				change_state(DONE)
+		DONE: # finished reading
+			next.visible = true
+			if Input.is_action_just_pressed("Next"):
 				change_state(START)
 				hide_all()
 
 # hides everything
 func hide_all():
-	body_text.text = ""
-	title_text.text = ""
+	body_text.visible = false
+	title_text.visible = false
 	dim.visible = false
 	box.visible = false
+	next.visible = false
 
 # shows everything
 func show_all():
+	body_text.visible = true
+	title_text.visible = true
 	dim.visible = true
 	box.visible = true
 
@@ -49,10 +56,12 @@ func show_all():
 func say(text):
 	change_state(READING) # state is "reading"
 	$BottomSection/Body/BodyText.text = text
+	text_animation.play("new_animation")
 	show_all()
 
 # text is done playing
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+		print(body_text.visible_ratio)
 		change_state(DONE)
 
 func set_title(text):
@@ -64,6 +73,6 @@ func change_state(next_state):
 		START:
 			print("START")
 		READING:
-			print("READINNG")
+			print("READING")
 		DONE:
 			print("DONE")

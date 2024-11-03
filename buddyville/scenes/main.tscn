@@ -1,19 +1,43 @@
-[gd_scene load_steps=10 format=3 uid="uid://ugtasvri7j35"]
+[gd_scene load_steps=13 format=3 uid="uid://ugtasvri7j35"]
 
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_1jvmq"]
 [ext_resource type="PackedScene" uid="uid://dlkgdkauuen1n" path="res://scenes/map.tscn" id="1_ej20c"]
 [ext_resource type="PackedScene" uid="uid://ru1bibjng8ry" path="res://scenes/Monkey.tscn" id="2_re01m"]
 [ext_resource type="PackedScene" uid="uid://ehfrk34mqty0" path="res://scenes/player.tscn" id="3_e0kjd"]
 [ext_resource type="PackedScene" uid="uid://daf0e1u4835rl" path="res://scenes/Owl.tscn" id="4_h7v2v"]
+[ext_resource type="Texture2D" uid="uid://cknprhjjdml6d" path="res://resources/items/Blood.png" id="4_udx1i"]
 [ext_resource type="PackedScene" uid="uid://c40ij0bcltqal" path="res://scenes/Porcupine.tscn" id="5_6pkf2"]
 [ext_resource type="PackedScene" uid="uid://cgveo3du6coy4" path="res://scenes/Rabbit.tscn" id="6_an1qs"]
-[ext_resource type="PackedScene" uid="uid://ddtjhyjyj14n4" path="res://scenes/dialogue_hud.tscn" id="7_dshv0"]
-[ext_resource type="PackedScene" path="res://scenes/mini_map.tscn" id="9_omdnr"]
+[ext_resource type="PackedScene" uid="uid://cogv1ja5ppqhl" path="res://scenes/dialogue_hud.tscn" id="7_dshv0"]
+[ext_resource type="PackedScene" uid="uid://vkpyypyk1cu6" path="res://scenes/mini_map.tscn" id="9_omdnr"]
+[ext_resource type="TileSet" uid="uid://cjh7unjjgfg2j" path="res://resources/gameres/outside-tileset.tres" id="10_h5kra"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v6jhy"]
+radius = 7.0
+height = 32.0
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_1jvmq")
 
 [node name="Map" parent="." instance=ExtResource("1_ej20c")]
+
+[node name="grave" type="TileMapLayer" parent="."]
+visible = false
+tile_map_data = PackedByteArray(0, 0, 14, 0, 55, 0, 0, 0, 52, 0, 10, 0, 0, 0, 13, 0, 56, 0, 0, 0, 31, 0, 9, 0, 0, 0, 15, 0, 56, 0, 0, 0, 29, 0, 9, 0, 0, 0, 13, 0, 57, 0, 0, 0, 28, 0, 9, 0, 0, 0, 15, 0, 57, 0, 0, 0, 30, 0, 9, 0, 0, 0)
+tile_set = ExtResource("10_h5kra")
+
+[node name="TextureRect" type="TextureRect" parent="grave"]
+offset_left = 201.0
+offset_top = 934.0
+offset_right = 217.0
+offset_bottom = 950.0
+texture = ExtResource("4_udx1i")
+expand_mode = 1
+
+[node name="hole" type="TileMapLayer" parent="."]
+visible = false
+tile_map_data = PackedByteArray(0, 0, 15, 0, 56, 0, 0, 0, 54, 0, 19, 0, 0, 0, 14, 0, 56, 0, 0, 0, 34, 0, 13, 0, 0, 0, 14, 0, 57, 0, 0, 0, 34, 0, 14, 0, 0, 0)
+tile_set = ExtResource("10_h5kra")
 
 [node name="Monkey" parent="." instance=ExtResource("2_re01m")]
 position = Vector2(81, 217)
@@ -41,3 +65,12 @@ visible = false
 [node name="MiniMap" parent="." node_paths=PackedStringArray("player", "tileMap") instance=ExtResource("9_omdnr")]
 player = NodePath("../player")
 tileMap = NodePath("../Map")
+
+[node name="dirt" type="Area2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="dirt"]
+position = Vector2(232, 912)
+shape = SubResource("CapsuleShape2D_v6jhy")
+
+[connection signal="input_event" from="dirt" to="." method="_on_dirt_input_event"]

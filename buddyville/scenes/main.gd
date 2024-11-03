@@ -17,7 +17,19 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if GameState.grave_state == GameState.DUG:
+		$hole.visible = true
+	if GameState.grave_state == GameState.BURIED:
+		$hole.visible = false
+		$grave.visible = true
 	
 func minimap_toggle():
 	$MiniMap.visible = !$MiniMap.visible
+
+
+func _on_dirt_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if event is InputEventMouseButton:
+		if $player.has_shovel && GameState.grave_state == GameState.NOT_DUG:
+			$hole.visible = true
+			GameState.grave_state = GameState.DUG
+			

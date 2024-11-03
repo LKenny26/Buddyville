@@ -18,12 +18,14 @@ signal unpause
 var pause_menu_scene = load("res://scenes/pause_menu.tscn")
 var pause_menu
 
+var has_shovel = GameState.has_shovel
 
 func _ready() -> void:
 	pause_menu = pause_menu_scene.instantiate()
 	add_child(pause_menu)
 	pause_menu.exit_game.connect(exit_pressed)
 	pause_menu.return_game.connect(return_pressed)
+	
 	inventory = GameState.inventory
 	state = GameState.game_state
 

@@ -1,0 +1,55 @@
+[gd_scene load_steps=7 format=3 uid="uid://bqdysqfrh8bx7"]
+
+[ext_resource type="Script" path="res://scenes/rock.gd" id="1_4ldsa"]
+[ext_resource type="Texture2D" uid="uid://cgh4n2n25ym4a" path="res://resources/sprites/outdoors/Spritesheet/roguelikeSheet_transparent.png" id="1_mtmh8"]
+[ext_resource type="FontFile" uid="uid://db8dyn6qxk2d2" path="res://resources/fonts/BubblegumSans-Regular.ttf" id="3_7hdmn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0wfmf"]
+atlas = ExtResource("1_mtmh8")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3xghn"]
+radius = 7.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_66jqn"]
+radius = 23.0217
+
+[node name="Rock" type="StaticBody2D"]
+script = ExtResource("1_4ldsa")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_0wfmf")
+region_enabled = true
+region_rect = Rect2(918, 357, 16, 17)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_3xghn")
+
+[node name="interact" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interact"]
+shape = SubResource("CircleShape2D_66jqn")
+
+[node name="Tooltip" type="Label" parent="."]
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -37.0
+offset_top = -23.0
+offset_right = 37.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_constants/shadow_outline_size = 2
+theme_override_fonts/font = ExtResource("3_7hdmn")
+theme_override_font_sizes/font_size = 18
+text = "Click to hit!"
+
+[connection signal="body_entered" from="interact" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="interact" to="." method="_on_area_2d_body_exited"]
+[connection signal="input_event" from="interact" to="." method="_input_event"]

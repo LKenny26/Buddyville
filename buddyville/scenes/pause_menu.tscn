@@ -4,6 +4,7 @@
 [ext_resource type="Theme" uid="uid://xj8wnav5qibl" path="res://resources/gameres/ui_theme.tres" id="2_6em76"]
 
 [node name="Pause_Menu" type="CanvasLayer"]
+layer = 9
 visible = false
 script = ExtResource("1_yiwmu")
 

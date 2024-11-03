@@ -6,6 +6,17 @@ var curr_state = IDLE # state that the villager is in
 var dir = Vector2.RIGHT # direction villager will move in
 var player_close = false # if the player is close to villager
 @onready var dialogue = $DialogueHud
+var interacted_monkey = 0
+var interacted_owl = 0
+var interacted_porcupine = 0
+var interacted_rabbit = 0
+
+
+var lines = ["How's your day going? Mine is going great!", 
+"Every day is a good day in Buddyville :)",
+"Have you met everybody on the island yet? They're really nice animals",
+"I could really go for some fresh fruit right now... Good thing there's some apple trees nearby!",
+"This is all a simulation."]
 
 # different villager states 
 enum{
@@ -64,23 +75,41 @@ func _on_timer_timeout() -> void:
 
 func _on_area_2d_input_event_monkey(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event.is_action_pressed("Interact") && player_close:
-		dialogue.say("I'M MONKI")
-		dialogue.set_title("Monkey")
+		if interacted_monkey == 0:
+			dialogue.say("Ooh ooh, a new person !! I'm Manny, I hope we can be friends!")
+			dialogue.set_title("Manny")
+			interacted_monkey += 1
+		else:
+			dialogue.say(choose(lines))
+		
 
 func _on_area_2d_input_event_owl(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event.is_action_pressed("Interact") && player_close:
-		dialogue.say("I'M OWL")
-		dialogue.set_title("Owl")
+		if interacted_owl == 0:
+			dialogue.say("Hi! I'm Oliver, nice to meet you! I've never seen you around before. Welcome to Buddyville!")
+			dialogue.set_title("Oliver")
+			interacted_owl += 1
+		else:
+			dialogue.say(choose(lines))
+		
 		
 func _on_area_2d_input_event_porcupine(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event.is_action_pressed("Interact") && player_close:
-		dialogue.say("I'M PORCUPINE")
-		dialogue.set_title("Porcupine")
+		if interacted_porcupine == 0:
+			dialogue.say("You must be the new person everybody's talking about! My name's Paul. I hope to see you around!")
+			dialogue.set_title("Paul")
+			interacted_porcupine += 1
+		else:
+			dialogue.say(choose(lines))
 
 func _on_area_2d_input_event_rabbit(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event.is_action_pressed("Interact") && player_close:
-		dialogue.say("I'M RABBIT")
-		dialogue.set_title("Rabbit")
+		if interacted_rabbit == 0:
+			dialogue.say("Heya, I'm Rosie! Welcome to Buddyville! Why don't you stop by my place sometime? We could have some apples and tea :)")
+			dialogue.set_title("Rosie")
+			interacted_rabbit += 1
+		else:
+			dialogue.say(choose(lines))
 	
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	player_close = true

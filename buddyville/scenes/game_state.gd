@@ -16,7 +16,7 @@ enum{
 }
 
 const QUEST_STRINGS = {
-	PRE: "Quests you are doing show up here!",
+	PRE: "Meet Petey in the Town Hall (Large Building in the Middle of the Island)",
 	MEET: "Go meet everyone!\n\n Then, return to Petey",
 	COLLECT: "Go collect an apple!\n\n Then, return to Petey",
 	DIG: "Go dig up some gold!\n\n Then, return to Petey",
@@ -29,7 +29,7 @@ const QUEST_STRINGS = {
 }
 
 # keeps track of which quest player is on
-var game_state = BEAT
+var game_state = PRE
 # player inventory
 var inventory = []
 # player position when swapping scenes
@@ -55,7 +55,8 @@ var villager_state = {
 }
 
 func next_game_state():
-	self.game_state += 1
+	game_state = game_state + 1
+	print("inc game state to: " + str(game_state))
 
 func give_item(item: String):
 	inventory.push_front(item)

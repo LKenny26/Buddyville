@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cdllntjpv68qc" path="res://resources/sprites/villagers/Rabbit/OriginalQuality/Untitled_Artwork-7(2).png" id="8_0bupu"]
 [ext_resource type="Texture2D" uid="uid://c11wrwfh7llt1" path="res://resources/sprites/villagers/Rabbit/OriginalQuality/Untitled_Artwork-8(2).png" id="9_py04g"]
 [ext_resource type="Texture2D" uid="uid://bxfi4lb2eocuk" path="res://resources/sprites/villagers/Rabbit/OriginalQuality/Untitled_Artwork-1(2) - Copy.png" id="10_hdhwc"]
-[ext_resource type="PackedScene" uid="uid://ddtjhyjyj14n4" path="res://scenes/dialogue_hud.tscn" id="10_w8spq"]
+[ext_resource type="PackedScene" uid="uid://cogv1ja5ppqhl" path="res://scenes/dialogue_hud.tscn" id="10_w8spq"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_c1hw7"]
 animations = [{

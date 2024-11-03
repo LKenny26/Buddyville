@@ -91,7 +91,21 @@ func _on_area_2d_input_event_monkey(viewport: Node, event: InputEvent, shape_idx
 
 func _on_area_2d_input_event_owl(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event.is_action_pressed("Interact") && player_close:
-		if interacted_owl == 0:
+		if GameState.game_state == GameState.AXE && GameState.has_axe == true:
+			dialogue.say("Did ya chop down those trees? Wait what are you.....")
+			dialogue.set_title("Oliver")
+			await get_tree().create_timer(4).timeout
+			$Blackout.visible = true
+			await get_tree().create_timer(0.5).timeout
+			var axe_murder = load("res://resources/oliver_death/axe_murder.mp3")
+			sound_player.stream = axe_murder
+			sound_player.play()
+			await get_tree().create_timer(9).timeout
+			GameState.villager_state["Owl"]["dead"] = true
+			queue_free()
+			$Blackout.visible = false
+			
+		elif interacted_owl == 0:
 			dialogue.say("Hi! I'm Oliver, nice to meet you! I've never seen you around before. Welcome to Buddyville!")
 			dialogue.set_title("Oliver")
 			interacted_owl += 1
@@ -102,7 +116,7 @@ func _on_area_2d_input_event_owl(viewport: Node, event: InputEvent, shape_idx: i
 		
 func _on_area_2d_input_event_porcupine(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event.is_action_pressed("Interact") && player_close:
-		if GameState.grave_state == GameState.DUG:
+		if GameState.grave_state == GameState.DUG && GameState.game_state == GameState.BURY:
 			dialogue.say("Hey... why did you dig that hole?")
 			dialogue.set_title("Paul")
 			await get_tree().create_timer(3).timeout
@@ -124,7 +138,6 @@ func _on_area_2d_input_event_porcupine(viewport: Node, event: InputEvent, shape_
 			GameState.grave_state = GameState.BURIED
 			GameState.villager_state["Porcupine"]["dead"] = true
 			queue_free()
-			
 		elif interacted_porcupine == 0:
 			dialogue.say("You must be the new person everybody's talking about! My name's Paul. I hope to see you around!")
 			dialogue.set_title("Paul")

@@ -29,7 +29,7 @@ const QUEST_STRINGS = {
 }
 
 # keeps track of which quest player is on
-var game_state = PRE
+var game_state = AXE
 # player inventory
 var inventory = []
 # player position when swapping scenes
@@ -59,7 +59,7 @@ var DUG = 1
 var BURIED = 2
 var grave_state = NOT_DUG
 
-var has_axe = false
+var has_axe = true
 var has_shovel = false
 var has_apple = false
 

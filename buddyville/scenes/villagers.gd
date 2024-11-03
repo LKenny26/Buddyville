@@ -135,7 +135,7 @@ func _on_area_2d_input_event_owl(viewport: Node, event: InputEvent, shape_idx: i
 			curr_state = TALKING
 			dialogue.say("Did ya chop down those trees? Wait what are you.....")
 			dialogue.set_title("Oliver")
-			await get_tree().create_timer(4).timeout
+			await get_tree().create_timer(3).timeout
 			$Blackout.visible = true
 			await get_tree().create_timer(0.5).timeout
 			var axe_murder = load("res://resources/oliver_death/axe_murder.mp3")

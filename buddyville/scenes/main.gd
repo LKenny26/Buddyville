@@ -5,16 +5,15 @@ extends Node2D
 func _ready() -> void:
 	$player.pause.connect(minimap_toggle)
 	$player.position = GameState.player_spawn_pos
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
 	if GameState.grave_state == GameState.DUG:
 		$hole.visible = true
 	if GameState.grave_state == GameState.BURIED:
 		$hole.visible = false
 		$grave.visible = true
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
 	
 func minimap_toggle():
 	$MiniMap.visible = !$MiniMap.visible

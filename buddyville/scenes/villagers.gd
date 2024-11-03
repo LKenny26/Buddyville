@@ -95,7 +95,18 @@ func _on_area_2d_input_event_owl(viewport: Node, event: InputEvent, shape_idx: i
 		
 func _on_area_2d_input_event_porcupine(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event.is_action_pressed("Interact") && player_close:
-		if interacted_porcupine == 0:
+		if GameState.grave_state == GameState.DUG:
+			dialogue.say("Hey... why did you dig that hole?")
+			dialogue.set_title("Paul")
+			await get_tree().create_timer(3).timeout
+			$Blackout.visible = true
+			await get_tree().create_timer(5).timeout
+			$Blackout.visible = false
+			GameState.grave_state = GameState.BURIED
+			GameState.villager_state["Porcupine"]["dead"] = true
+			queue_free()
+			
+		elif interacted_porcupine == 0:
 			dialogue.say("You must be the new person everybody's talking about! My name's Paul. I hope to see you around!")
 			dialogue.set_title("Paul")
 			interacted_porcupine += 1

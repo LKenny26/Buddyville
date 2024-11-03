@@ -41,7 +41,16 @@ func _ready():
 	
 	start_pos = position # set starting position (for bounds)
 	randomize()
-	add_child(sound_player) 
+	add_child(sound_player)
+	if GameState.villager_state["Porcupine"]["met"] == true:
+		interacted_porcupine = 1
+	if GameState.villager_state["Monkey"]["met"] == true:
+		interacted_monkey = 1
+	if GameState.villager_state["Owl"]["met"] == true:
+		interacted_owl = 1
+	if GameState.villager_state["Rabbit"]["met"] == true:
+		interacted_rabbit = 1
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float):
@@ -118,6 +127,7 @@ func _on_area_2d_input_event_monkey(viewport: Node, event: InputEvent, shape_idx
 
 func _on_area_2d_input_event_owl(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event.is_action_pressed("Interact") && player_close:
+		dialogue.set_title("Oliver")
 		if GameState.game_state == GameState.AXE:
 			curr_state = TALKING
 			dialogue.say("Did ya chop down those trees? Wait what are you.....")
@@ -146,6 +156,7 @@ func _on_area_2d_input_event_owl(viewport: Node, event: InputEvent, shape_idx: i
 		
 func _on_area_2d_input_event_porcupine(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event.is_action_pressed("Interact") && player_close:
+		dialogue.set_title("Paul")
 		if GameState.grave_state == GameState.DUG && GameState.game_state == GameState.BURY:
 			curr_state = TALKING
 			dialogue.say("Hey... why did you dig that hole?")
@@ -184,6 +195,7 @@ func _on_area_2d_input_event_porcupine(viewport: Node, event: InputEvent, shape_
 func _on_area_2d_input_event_rabbit(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event.is_action_pressed("Interact") && player_close:
 		print(GameState.villager_state)
+		dialogue.set_title("Rosie")
 		curr_state = TALKING
 		if interacted_rabbit == 0 && state != 5:
 			dialogue.say("Heya, I'm Rosie! Welcome to Buddyville! Why don't you stop by my place sometime? We could have some apples and tea :)")

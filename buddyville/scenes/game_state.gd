@@ -16,12 +16,12 @@ enum{
 }
 
 const QUEST_STRINGS = {
-	PRE: "Meet Petey in the Town Hall (Large Building in the Middle of the Island)",
-	MEET: "Go meet everyone!\n\n Then, return to Petey",
-	COLLECT: "Go collect an apple!\n\n Then, return to Petey",
-	DIG: "Go dig up some gold!\n\n Then, return to Petey",
-	CHOP: "Go get some wood!\n\n Then, return to Petey",
-	POISON: "Go deliver an 'apple' to Rosie! \n\n Then, return to Petey",
+	PRE: "Quests you are doing show up here!",
+	MEET: "Go meet everyone!\n\nThen, return to Petey",
+	COLLECT: "Go collect an apple!\n\nThen, return to Petey",
+	DIG: "Go dig up some gold!\n\nThen, return to Petey",
+	CHOP: "Go get some wood!\n\nThen, return to Petey",
+	POISON: "Go deliver an 'apple' to Rosie! \n\nThen, return to Petey",
 	BURY: "Oh no! What have you done.\n\n...What have you done?\n\nDig a hole for Paul!",
 	BEAT: "Greet Manny with your hands.\n\n",
 	AXE: "\n\n\nI think Oliver is made out of wood.",

@@ -1,6 +1,7 @@
 extends Node2D
 
 var interacted = false
+var chopped = false
 var player_close = false
 
 # Called when the node enters the scene tree for the first time.
@@ -25,6 +26,15 @@ func _on_area_2d_body_exited(body):
 
 func _input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event.is_action_pressed("Interact"):
+		if !chopped && player_close && GameState.inventory.has("axe"):
+			print("wood")
+			GameState.give_item("wood")
+			chopped = true
+			interacted = true
+			$Sprite2D.region_rect = Rect2(903, 375, 13, 15)
+			$Tooltip.visible = false
+			await get_tree().create_timer(0.5).timeout
+			self.queue_free()
 		if !interacted && player_close:
 			print("apple")
 			GameState.give_item("apple")

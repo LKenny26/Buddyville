@@ -27,7 +27,7 @@ enum{
 }
 
 func _ready():
-	$AnimatedSprite2D.play() # start animation
+	$AnimatedSprite2D.play("monkey") # start animation
 	$Timer.start() # start timer
 	
 	start_pos = position # set starting position (for bounds)
@@ -35,16 +35,19 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float):
-	match curr_state:
-		# does nothing if idle
-		IDLE:
-			pass
-		# chooses a random direction to walk in
-		CHOOSE_DIR:
-			dir = choose([Vector2.RIGHT, Vector2.LEFT, Vector2.UP, Vector2.DOWN])
-		# villager moves !
-		MOVING:
-			move(delta)
+	if GameState.villager_state["Monkey"]["dead"]:
+		pass
+	else:
+		match curr_state:
+			# does nothing if idle
+			IDLE:
+				pass
+			# chooses a random direction to walk in
+			CHOOSE_DIR:
+				dir = choose([Vector2.RIGHT, Vector2.LEFT, Vector2.UP, Vector2.DOWN])
+			# villager moves !
+			MOVING:
+				move(delta)
 
 # to help randomly choose (anything)
 func choose(array):
@@ -126,7 +129,10 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 	player_close = false
 
 func _on_death_timer_timeout() -> void:
+	GameState.villager_state["Monkey"]["dead"] = true
 	$CanvasLayer/ColorRect.visible = true
+	$AnimatedSprite2D.play("dead_monkey")
+	# toggle mini map
 	$DeathTimer.stop()
 	$DoneTimer.start(5)
 

@@ -1,6 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://ru1bibjng8ry"]
+[gd_scene load_steps=15 format=3 uid="uid://ru1bibjng8ry"]
 
-[ext_resource type="Script" path="res://scenes/villagers.gd" id="1_dplr4"]
+[ext_resource type="Script" path="res://scenes/monkey.gd" id="1_rlj15"]
+[ext_resource type="Texture2D" uid="uid://dnvfuwj038avv" path="res://resources/sprites/villagers/Monkey/OriginalQuality/monkey_dead.png" id="2_gquvw"]
 [ext_resource type="Texture2D" uid="uid://bkau6d4anw8ey" path="res://resources/sprites/villagers/Monkey/OriginalQuality/Untitled_Artwork-1.png" id="2_hbmud"]
 [ext_resource type="Texture2D" uid="uid://bvaboy7jydgg6" path="res://resources/sprites/villagers/Monkey/OriginalQuality/Untitled_Artwork-2.png" id="3_00b1v"]
 [ext_resource type="Texture2D" uid="uid://befuertep0p3f" path="res://resources/sprites/villagers/Monkey/OriginalQuality/Untitled_Artwork-3.png" id="4_ufl7m"]
@@ -13,6 +14,14 @@
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_bovaw"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_gquvw")
+}],
+"loop": true,
+"name": &"dead_monkey",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_hbmud")
@@ -52,11 +61,11 @@ radius = 50.1597
 
 [node name="Monkey" type="CharacterBody2D" groups=["NPC"]]
 collision_layer = 3
-script = ExtResource("1_dplr4")
+script = ExtResource("1_rlj15")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_bovaw")
-animation = &"monkey"
+animation = &"dead_monkey"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 2)

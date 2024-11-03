@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://cogv1ja5ppqhl" path="res://scenes/dialogue_hud.tscn" id="7_dshv0"]
 [ext_resource type="PackedScene" uid="uid://vkpyypyk1cu6" path="res://scenes/mini_map.tscn" id="9_omdnr"]
 [ext_resource type="TileSet" uid="uid://cjh7unjjgfg2j" path="res://resources/gameres/outside-tileset.tres" id="10_h5kra"]
-[ext_resource type="PackedScene" path="res://scenes/unalive_owl.tscn" id="12_xemxu"]
+[ext_resource type="PackedScene" uid="uid://dqe70irbmge72" path="res://scenes/unalive_owl.tscn" id="12_xemxu"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v6jhy"]
 radius = 7.0

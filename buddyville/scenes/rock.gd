@@ -2,7 +2,6 @@ extends Node2D
 
 var interacted = false
 var player_close = false
-var has_shovel = GameState.has_shovel
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

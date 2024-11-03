@@ -181,12 +181,16 @@ func _on_area_2d_input_event_porcupine(viewport: Node, event: InputEvent, shape_
 func _on_area_2d_input_event_rabbit(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event.is_action_pressed("Interact") && player_close:
 		curr_state = TALKING
-		if interacted_rabbit == 0:
+		if interacted_rabbit == 0 && state != 5:
 			dialogue.say("Heya, I'm Rosie! Welcome to Buddyville! Why don't you stop by my place sometime? We could have some apples and tea :)")
 			dialogue.set_title("Rosie")
 			interacted_rabbit += 1
 			GameState.villager_state["Rabbit"]["met"] = true
 			curr_state = choose([IDLE, CHOOSE_DIR, MOVING])
+		elif state == 5:
+			dialogue.say("An apple? For me? Thank you so much!")
+			dialogue.set_title("Rosie")
+			$DeathTimer.start(2)
 		else:
 			dialogue.say(choose(lines))
 	curr_state = choose([IDLE, CHOOSE_DIR, MOVING])
@@ -198,13 +202,18 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 	player_close = false
 
 func _on_death_timer_timeout() -> void:
-	if state == 7:
+	if state == 5: # rabbit death
+		GameState.villager_state["Rabbit"]["dead"] = true
+		$AnimatedSprite2D.play("rabbit dead")
+		var apple = load("res://resources/sfx/Rosie_Death.wav")
+		sound_player.stream = apple
+		sound_player.play()
+	elif state == 7: # monkey death
 		GameState.villager_state["Monkey"]["dead"] = true
 		$AnimatedSprite2D.play("dead_monkey")
 		var punch = load("res://resources/sfx/punching_sfx.wav")
 		sound_player.stream = punch
 		sound_player.play()
-		print("PUNCH SFX")
 	$CanvasLayer/ColorRect.visible = true
 	get_parent().get_node("MiniMap").visible = false
 	$DeathTimer.stop()
@@ -214,5 +223,9 @@ func _on_done_timer_timeout() -> void:
 	$DoneTimer.stop()
 	$CanvasLayer/ColorRect.visible = false
 	get_parent().get_node("MiniMap").visible = true
-	dialogue.set_title("(Petey)")
-	dialogue.say("One more to go.....")
+	if state == 7:
+		dialogue.set_title("(Petey)")
+		dialogue.say("One more to go.....")
+	elif state == 5:
+		dialogue.set_title("(Petey)")
+		dialogue.say("Oh no......")

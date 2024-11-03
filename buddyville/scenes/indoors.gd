@@ -2,6 +2,7 @@ extends Node2D
 
 func _ready():
 	$player.set_quest_window()
+	$AudioStreamPlayer2D.play()
 
 func _on_exit_body_entered(body: Node2D) -> void:
 	if body == $player:

@@ -16,7 +16,7 @@ var lines = ["How's your day going? Mine is going great!",
 "Every day is a good day in Buddyville :)",
 "Have you met everybody on the island yet? They're really nice animals",
 "I could really go for some fresh fruit right now... Good thing there's some apple trees nearby!",
-"This is all a simulation."]
+"This is all a simulation. Wake up."]
 
 # different villager states 
 enum{

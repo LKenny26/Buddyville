@@ -9,7 +9,7 @@ const DOWN = 3
 var speed = 150.0
 var last_dir = LEFT
 var run = false
-var can_move = true
+var can_move = GameState.can_move
 
 signal exit
 signal pause
@@ -120,3 +120,4 @@ func return_pressed():
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	print(body)
+	

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://jx3iefik11fy"]
+[gd_scene load_steps=9 format=3 uid="uid://dr43q7n06rghg"]
 
 [ext_resource type="Script" path="res://scenes/panda.gd" id="1_qwq17"]
 [ext_resource type="PackedScene" uid="uid://ru1bibjng8ry" path="res://scenes/Monkey.tscn" id="1_sg4ir"]
@@ -49,6 +49,7 @@ scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_yy14y")
 animation = &"default"
 autoplay = "default"
+flip_h = true
 
 [node name="CollisionShape2D" parent="." index="1"]
 position = Vector2(-1, 0)

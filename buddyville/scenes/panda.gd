@@ -105,4 +105,7 @@ func _on_area_2d_input_event(viewport, event, shape_idx):
 		dialogue.set_title("Petey")
 		if !quest_passed():
 			no_pass()
+			
+func _on_death_timer_timeout() -> void:
+	pass
 		

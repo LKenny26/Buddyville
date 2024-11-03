@@ -117,7 +117,8 @@ func _on_area_2d_input_event_monkey(viewport: Node, event: InputEvent, shape_idx
 		# kill monkey
 		elif state == 7:
 			dialogue.say("What's up!  \n ... \n What are you...")
-			$DeathTimer.start(2)
+			if $DeathTimer.is_stopped():
+				$DeathTimer.start(2)
 		# any other interaction w/ monkey
 		else:
 			curr_state = TALKING
@@ -210,7 +211,8 @@ func _on_area_2d_input_event_rabbit(viewport: Node, event: InputEvent, shape_idx
 		elif state == 5:
 			dialogue.say("An apple? For me? Thank you so much!")
 			dialogue.set_title("Rosie")
-			$DeathTimer.start(2)
+			if $DeathTimer.is_stopped():
+				$DeathTimer.start(2)
 		else:
 			dialogue.say(choose(lines))
 	curr_state = choose([IDLE, CHOOSE_DIR, MOVING])

@@ -1,0 +1,127 @@
+[gd_scene load_steps=10 format=3 uid="uid://2v8h1r6kmtfy"]
+
+[ext_resource type="Script" path="res://scenes/start.gd" id="1_0hlxj"]
+[ext_resource type="PackedScene" uid="uid://ugtasvri7j35" path="res://scenes/main.tscn" id="1_4wnxm"]
+[ext_resource type="Theme" uid="uid://xj8wnav5qibl" path="res://resources/gameres/ui_theme.tres" id="1_akpvl"]
+[ext_resource type="Texture2D" uid="uid://ulu5htyfwcd5" path="res://resources/ui/Tiles/Large tiles/Thick outline/tile_0019.png" id="4_cgyia"]
+
+[sub_resource type="Animation" id="Animation_ensy6"]
+resource_name = "new_animation"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(3.24901, 0.353554, 3.36358),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.25, 1.25), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_jli6x"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_getu0"]
+resource_name = "anim"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qhk3t"]
+_data = {
+"RESET": SubResource("Animation_jli6x"),
+"anim": SubResource("Animation_getu0"),
+"new_animation": SubResource("Animation_ensy6")
+}
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5gc0x"]
+texture = ExtResource("4_cgyia")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+draw_center = false
+
+[node name="Start" type="Node2D"]
+script = ExtResource("1_0hlxj")
+
+[node name="Main" parent="." instance=ExtResource("1_4wnxm")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Title" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_akpvl")
+
+[node name="Label" type="Label" parent="CanvasLayer/Title"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -91.0
+offset_right = 300.0
+offset_bottom = 91.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(385, 91)
+theme_override_colors/font_color = Color(0.972549, 0.901961, 0.741176, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 6
+theme_override_constants/shadow_offset_y = 7
+theme_override_constants/outline_size = 152
+theme_override_constants/shadow_outline_size = 10
+theme_override_font_sizes/font_size = 200
+text = "buddyville"
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Title"]
+libraries = {
+"": SubResource("AnimationLibrary_qhk3t")
+}
+autoplay = "new_animation"
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_5gc0x")
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.65
+anchor_right = 0.5
+anchor_bottom = 0.65
+offset_left = -100.0
+offset_right = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_akpvl")
+theme_override_font_sizes/font_size = 64
+text = "Play!"
+
+[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]

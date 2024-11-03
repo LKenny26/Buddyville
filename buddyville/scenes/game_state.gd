@@ -29,7 +29,7 @@ const QUEST_STRINGS = {
 }
 
 # keeps track of which quest player is on
-var game_state = MEET
+var game_state = PRE
 # player inventory
 var inventory = []
 # player position when swapping scenes
@@ -55,7 +55,8 @@ var villager_state = {
 }
 
 func next_game_state():
-	self.game_state += 1
+	game_state = game_state + 1
+	print("inc game state to: " + str(game_state))
 
 func give_item(item: String):
 	inventory.push_front(item)

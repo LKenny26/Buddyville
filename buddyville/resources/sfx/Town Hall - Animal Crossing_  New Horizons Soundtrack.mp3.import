@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://oibjr103u5l8"
+path="res://.godot/imported/Town Hall - Animal Crossing_  New Horizons Soundtrack.mp3-8f4ba9fde98514b167df359948f4dfc9.mp3str"
+
+[deps]
+
+source_file="res://resources/sfx/Town Hall - Animal Crossing_  New Horizons Soundtrack.mp3"
+dest_files=["res://.godot/imported/Town Hall - Animal Crossing_  New Horizons Soundtrack.mp3-8f4ba9fde98514b167df359948f4dfc9.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://ugtasvri7j35"]
+[gd_scene load_steps=15 format=3 uid="uid://ugtasvri7j35"]
 
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_1jvmq"]
 [ext_resource type="PackedScene" uid="uid://dlkgdkauuen1n" path="res://scenes/map.tscn" id="1_ej20c"]
@@ -8,10 +8,11 @@
 [ext_resource type="Texture2D" uid="uid://cknprhjjdml6d" path="res://resources/items/Blood.png" id="4_udx1i"]
 [ext_resource type="PackedScene" uid="uid://c40ij0bcltqal" path="res://scenes/Porcupine.tscn" id="5_6pkf2"]
 [ext_resource type="PackedScene" uid="uid://cgveo3du6coy4" path="res://scenes/Rabbit.tscn" id="6_an1qs"]
-[ext_resource type="PackedScene" uid="uid://cogv1ja5ppqhl" path="res://scenes/dialogue_hud.tscn" id="7_dshv0"]
-[ext_resource type="PackedScene" uid="uid://vkpyypyk1cu6" path="res://scenes/mini_map.tscn" id="9_omdnr"]
+[ext_resource type="PackedScene" uid="uid://ddtjhyjyj14n4" path="res://scenes/dialogue_hud.tscn" id="7_dshv0"]
+[ext_resource type="PackedScene" path="res://scenes/mini_map.tscn" id="9_omdnr"]
 [ext_resource type="TileSet" uid="uid://cjh7unjjgfg2j" path="res://resources/gameres/outside-tileset.tres" id="10_h5kra"]
 [ext_resource type="PackedScene" uid="uid://dqe70irbmge72" path="res://scenes/unalive_owl.tscn" id="12_xemxu"]
+[ext_resource type="AudioStream" uid="uid://drglkknj66tl1" path="res://resources/sfx/POL-wonder-place-short.wav" id="13_773ra"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v6jhy"]
 radius = 7.0
@@ -77,5 +78,8 @@ collision_layer = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="dirt"]
 position = Vector2(232, 912)
 shape = SubResource("CapsuleShape2D_v6jhy")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_773ra")
 
 [connection signal="input_event" from="dirt" to="." method="_on_dirt_input_event"]

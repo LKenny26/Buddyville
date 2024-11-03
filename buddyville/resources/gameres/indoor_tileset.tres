@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://b5ffpv1qnuj5i"]
+[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://b0qhxik81xx5d"]
 
 [ext_resource type="Texture2D" uid="uid://ctrrlu1nieoq7" path="res://resources/sprites/indoors/Tilesheets/roguelikeIndoor_transparent.png" id="1_8bqac"]
 
@@ -539,6 +539,10 @@ separation = Vector2i(1, 1)
 25:18/0 = 0
 26:18/0 = 0
 27:18/0 = 0
+23:0/0 = 0
+23:1/0 = 0
+23:2/0 = 0
+23:3/0 = 0
 
 [resource]
 physics_layer_0/collision_layer = 1

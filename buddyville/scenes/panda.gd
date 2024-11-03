@@ -14,16 +14,24 @@ func check_quest():
 			if !GameState.inventory.contains("apple"):
 				no_pass()
 				return
+			else:
+				GameState.give_item("shovel")
 		# player must dig to collect gold
 		GameState.DIG:
 			if !GameState.inventory.contains("gold"):
 				no_pass()
 				return
+			else:
+				GameState.give_item("axe")
 		# player must chop a tree to collect wood
 		GameState.CHOP:
 			if !GameState.inventory.contains("wood"):
 				no_pass()
 				return
+			else:
+				# replace an apple with a poison apple
+				GameState.inventory.remove_at(GameState.inventory.find("apple"))
+				GameState.give_item("poison apple")
 		# player must poison an apple and kill the rabbit with it
 		GameState.POISON:
 			if !GameState.villager_state["Rabbit"]["dead"]:

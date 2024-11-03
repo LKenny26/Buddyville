@@ -13,7 +13,7 @@ var run = false
 var inventory = []
 
 func _ready():
-	pass
+	set_quest_window()
 
 func _process(delta: float) -> void:
 	
@@ -72,6 +72,9 @@ func _process(delta: float) -> void:
 		else:
 			get_node("AnimatedSprite2D").play("idle-down")
 	move_and_collide(direction * speed * delta) # cheat to get it to move and collide right
+
+func set_quest_window():
+	$MainHud.update_quest(GameState.QUEST_STRINGS[GameState.game_state])
 
 func death():
 	set_process(false)

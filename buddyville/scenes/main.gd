@@ -17,7 +17,7 @@ func _ready() -> void:
 	if GameState.villager_state["Rabbit"]["dead"]:
 		$Rabbit/AnimatedSprite2D.play("rabbit dead")
 	$player.set_quest_window()
-
+	$AudioStreamPlayer2D.play()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

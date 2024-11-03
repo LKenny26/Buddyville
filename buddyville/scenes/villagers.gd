@@ -27,12 +27,16 @@ var lines = ["How's your day going? Mine is going great!",
 # different villager states 
 enum{
 	IDLE,
+	TALKING,
 	CHOOSE_DIR,
 	MOVING
 }
 
 func _ready():
-	$AnimatedSprite2D.play("monkey") # start animation
+	$AnimatedSprite2D.play("monkey") # start animation for monkey
+	$AnimatedSprite2D.play("porcupine") # animation for porcupine
+	$AnimatedSprite2D.play("owl") # owl animation
+	$AnimatedSprite2D.play("rabbit") # rabbit animation
 	$Timer.start() # start timer
 	
 	start_pos = position # set starting position (for bounds)
@@ -41,19 +45,19 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float):
-	if GameState.villager_state["Monkey"]["dead"]:
-		pass
-	else:
-		match curr_state:
-			# does nothing if idle
-			IDLE:
-				pass
-			# chooses a random direction to walk in
-			CHOOSE_DIR:
-				dir = choose([Vector2.RIGHT, Vector2.LEFT, Vector2.UP, Vector2.DOWN])
-			# villager moves !
-			MOVING:
-				move(delta)
+	match curr_state:
+		# does nothing if idle
+		IDLE:
+			pass
+		# stays still if villager is talking
+		TALKING:
+			pass
+		# chooses a random direction to walk in
+		CHOOSE_DIR:
+			dir = choose([Vector2.RIGHT, Vector2.LEFT, Vector2.UP, Vector2.DOWN])
+		# villager moves !
+		MOVING:
+			move(delta)
 
 # to help randomly choose (anything)
 func choose(array):
@@ -81,28 +85,37 @@ func move(delta):
 
 # chooses random state
 func _on_timer_timeout() -> void:
-	$Timer.wait_time = 0.5
-	curr_state = choose([IDLE, CHOOSE_DIR, MOVING])
+	if curr_state == TALKING:
+		$Timer.stop()
+	else:
+		$Timer.wait_time = 0.5
+		curr_state = choose([IDLE, CHOOSE_DIR, MOVING])
 
 func _on_area_2d_input_event_monkey(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event.is_action_pressed("Interact") && player_close:
 		# meet monkey
+		curr_state = TALKING
 		dialogue.set_title("Manny")
 		if interacted_monkey == 0 && state != 7:
 			dialogue.say("Ooh ooh, a new person !! I'm Manny, I hope we can be friends!")
 			GameState.villager_state["Monkey"]["met"] = true
 			interacted_monkey += 1
+			
 		# kill monkey
 		elif state == 7:
 			dialogue.say("What's up!  \n ... \n What are you...")
 			$DeathTimer.start(2)
 		# any other interaction w/ monkey
 		else:
+			curr_state = TALKING
 			dialogue.say(choose(lines))
+			
+	curr_state = choose([IDLE, CHOOSE_DIR, MOVING])
 		
 
 func _on_area_2d_input_event_owl(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event.is_action_pressed("Interact") && player_close:
+		curr_state = TALKING
 		if interacted_owl == 0:
 			dialogue.say("Hi! I'm Oliver, nice to meet you! I've never seen you around before. Welcome to Buddyville!")
 			dialogue.set_title("Oliver")
@@ -110,11 +123,13 @@ func _on_area_2d_input_event_owl(viewport: Node, event: InputEvent, shape_idx: i
 			GameState.villager_state["Owl"]["met"] = true
 		else:
 			dialogue.say(choose(lines))
+	curr_state = choose([IDLE, CHOOSE_DIR, MOVING])
 		
 		
 func _on_area_2d_input_event_porcupine(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event.is_action_pressed("Interact") && player_close:
 		if GameState.grave_state == GameState.DUG:
+			curr_state = TALKING
 			dialogue.say("Hey... why did you dig that hole?")
 			dialogue.set_title("Paul")
 			await get_tree().create_timer(3).timeout
@@ -138,22 +153,29 @@ func _on_area_2d_input_event_porcupine(viewport: Node, event: InputEvent, shape_
 			queue_free()
 			
 		elif interacted_porcupine == 0:
+			curr_state = TALKING
 			dialogue.say("You must be the new person everybody's talking about! My name's Paul. I hope to see you around!")
 			dialogue.set_title("Paul")
 			interacted_porcupine += 1
 			GameState.villager_state["Porcupine"]["met"] = true
+
 		else:
+			curr_state = TALKING
 			dialogue.say(choose(lines))
+	curr_state = choose([IDLE, CHOOSE_DIR, MOVING])
 
 func _on_area_2d_input_event_rabbit(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event.is_action_pressed("Interact") && player_close:
+		curr_state = TALKING
 		if interacted_rabbit == 0:
 			dialogue.say("Heya, I'm Rosie! Welcome to Buddyville! Why don't you stop by my place sometime? We could have some apples and tea :)")
 			dialogue.set_title("Rosie")
 			interacted_rabbit += 1
 			GameState.villager_state["Rabbit"]["met"] = true
+			curr_state = choose([IDLE, CHOOSE_DIR, MOVING])
 		else:
 			dialogue.say(choose(lines))
+	curr_state = choose([IDLE, CHOOSE_DIR, MOVING])
 	
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	player_close = true
@@ -162,9 +184,14 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 	player_close = false
 
 func _on_death_timer_timeout() -> void:
-	GameState.villager_state["Monkey"]["dead"] = true
+	if state == 7:
+		GameState.villager_state["Monkey"]["dead"] = true
+		$AnimatedSprite2D.play("dead_monkey")
+		var punch = load("res://resources/sfx/punching_sfx.wav")
+		sound_player.stream = punch
+		sound_player.play()
+		print("PUNCH SFX")
 	$CanvasLayer/ColorRect.visible = true
-	$AnimatedSprite2D.play("dead_monkey")
 	get_parent().get_node("MiniMap").visible = false
 	$DeathTimer.stop()
 	$DoneTimer.start(5)

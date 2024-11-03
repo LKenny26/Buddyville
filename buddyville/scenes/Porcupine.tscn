@@ -39,7 +39,7 @@ animations = [{
 "texture": ExtResource("9_w7eoo")
 }],
 "loop": true,
-"name": &"default",
+"name": &"porcupine",
 "speed": 15.0
 }]
 
@@ -56,7 +56,7 @@ script = ExtResource("1_jqn48")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_8qjos")
-frame_progress = 0.743794
+animation = &"porcupine"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 2)

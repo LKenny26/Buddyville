@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://chtoorsiwsymd" path="res://resources/sprites/villagers/Rabbit/OriginalQuality/Untitled_Artwork-6(2).png" id="7_3etgh"]
 [ext_resource type="Texture2D" uid="uid://cdllntjpv68qc" path="res://resources/sprites/villagers/Rabbit/OriginalQuality/Untitled_Artwork-7(2).png" id="8_0bupu"]
 [ext_resource type="Texture2D" uid="uid://c11wrwfh7llt1" path="res://resources/sprites/villagers/Rabbit/OriginalQuality/Untitled_Artwork-8(2).png" id="9_py04g"]
-[ext_resource type="PackedScene" uid="uid://cogv1ja5ppqhl" path="res://scenes/dialogue_hud.tscn" id="10_w8spq"]
+[ext_resource type="PackedScene" uid="uid://ddtjhyjyj14n4" path="res://scenes/dialogue_hud.tscn" id="10_w8spq"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_c1hw7"]
 animations = [{
@@ -39,7 +39,7 @@ animations = [{
 "texture": ExtResource("9_py04g")
 }],
 "loop": true,
-"name": &"default",
+"name": &"rabbit",
 "speed": 15.0
 }]
 
@@ -56,7 +56,7 @@ script = ExtResource("1_mnjga")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_c1hw7")
-frame_progress = 0.960124
+animation = &"rabbit"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 2)

@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://7lvwr7hkh7jb"
-path="res://.godot/imported/punching sfx.wav-3a5c037dcffd68c33efddc8fd5680b66.sample"
+path="res://.godot/imported/punching_sfx.wav-432b0ced48bfcf88cdb2e54cbabfb9c0.sample"
 
 [deps]
 
-source_file="res://resources/sfx/punching sfx.wav"
-dest_files=["res://.godot/imported/punching sfx.wav-3a5c037dcffd68c33efddc8fd5680b66.sample"]
+source_file="res://resources/sfx/punching_sfx.wav"
+dest_files=["res://.godot/imported/punching_sfx.wav-432b0ced48bfcf88cdb2e54cbabfb9c0.sample"]
 
 [params]
 

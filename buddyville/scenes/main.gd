@@ -7,6 +7,9 @@ func _ready() -> void:
 	$player.position = GameState.player_spawn_pos
 	if GameState.grave_state == GameState.DUG:
 		$hole.visible = true
+	if GameState.grave_state == GameState.BURIED:
+		$hole.visible = false
+		$grave.visible = true
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

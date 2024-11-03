@@ -59,6 +59,10 @@ var DUG = 1
 var BURIED = 2
 var grave_state = NOT_DUG
 
+var has_axe = false
+var has_shovel = true
+var has_apple = false
+
 func next_game_state():
 	self.game_state += 1
 

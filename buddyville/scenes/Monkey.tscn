@@ -1,6 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://ru1bibjng8ry"]
+[gd_scene load_steps=15 format=3 uid="uid://ru1bibjng8ry"]
 
-[ext_resource type="Script" path="res://scenes/villagers.gd" id="1_dplr4"]
+[ext_resource type="Script" path="res://scenes/monkey.gd" id="1_rlj15"]
+[ext_resource type="Texture2D" uid="uid://dnvfuwj038avv" path="res://resources/sprites/villagers/Monkey/OriginalQuality/monkey_dead.png" id="2_gquvw"]
 [ext_resource type="Texture2D" uid="uid://bkau6d4anw8ey" path="res://resources/sprites/villagers/Monkey/OriginalQuality/Untitled_Artwork-1.png" id="2_hbmud"]
 [ext_resource type="Texture2D" uid="uid://bvaboy7jydgg6" path="res://resources/sprites/villagers/Monkey/OriginalQuality/Untitled_Artwork-2.png" id="3_00b1v"]
 [ext_resource type="Texture2D" uid="uid://befuertep0p3f" path="res://resources/sprites/villagers/Monkey/OriginalQuality/Untitled_Artwork-3.png" id="4_ufl7m"]
@@ -9,10 +10,18 @@
 [ext_resource type="Texture2D" uid="uid://dieyqiqmx0lv" path="res://resources/sprites/villagers/Monkey/OriginalQuality/Untitled_Artwork-6.png" id="7_de844"]
 [ext_resource type="Texture2D" uid="uid://cjxp0dtnogcpo" path="res://resources/sprites/villagers/Monkey/OriginalQuality/Untitled_Artwork-7.png" id="8_qdo5e"]
 [ext_resource type="Texture2D" uid="uid://b5vp4ymi53rh5" path="res://resources/sprites/villagers/Monkey/OriginalQuality/Untitled_Artwork-8.png" id="9_2nw2s"]
-[ext_resource type="PackedScene" uid="uid://cogv1ja5ppqhl" path="res://scenes/dialogue_hud.tscn" id="10_2qu2p"]
+[ext_resource type="PackedScene" uid="uid://ddtjhyjyj14n4" path="res://scenes/dialogue_hud.tscn" id="10_2qu2p"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_bovaw"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_gquvw")
+}],
+"loop": true,
+"name": &"dead_monkey",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_hbmud")
@@ -52,11 +61,11 @@ radius = 50.1597
 
 [node name="Monkey" type="CharacterBody2D" groups=["NPC"]]
 collision_layer = 3
-script = ExtResource("1_dplr4")
+script = ExtResource("1_rlj15")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_bovaw")
-animation = &"monkey"
+animation = &"dead_monkey"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 2)
@@ -73,7 +82,23 @@ shape = SubResource("CircleShape2D_hdvne")
 
 [node name="DialogueHud" parent="." instance=ExtResource("10_2qu2p")]
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+scale = Vector2(2, 2)
+transform = Transform2D(2, 0, 0, 2, 0, 0)
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+visible = false
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 1)
+
+[node name="DeathTimer" type="Timer" parent="."]
+
+[node name="DoneTimer" type="Timer" parent="."]
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event_monkey"]
+[connection signal="timeout" from="DeathTimer" to="." method="_on_death_timer_timeout"]
+[connection signal="timeout" from="DoneTimer" to="." method="_on_done_timer_timeout"]

@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cv7bfw0vk3d73" path="res://resources/sprites/villagers/Porcupine/OriginalQuality/Untitled_Artwork-6.png" id="7_eiurj"]
 [ext_resource type="Texture2D" uid="uid://b8whrp5yuypty" path="res://resources/sprites/villagers/Porcupine/OriginalQuality/Untitled_Artwork-7.png" id="8_taymw"]
 [ext_resource type="Texture2D" uid="uid://dnh34ewdp18jt" path="res://resources/sprites/villagers/Porcupine/OriginalQuality/Untitled_Artwork-8.png" id="9_w7eoo"]
-[ext_resource type="PackedScene" uid="uid://cogv1ja5ppqhl" path="res://scenes/dialogue_hud.tscn" id="10_adcg4"]
+[ext_resource type="PackedScene" uid="uid://ddtjhyjyj14n4" path="res://scenes/dialogue_hud.tscn" id="10_adcg4"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8qjos"]
 animations = [{
@@ -39,7 +39,7 @@ animations = [{
 "texture": ExtResource("9_w7eoo")
 }],
 "loop": true,
-"name": &"default",
+"name": &"porcupine",
 "speed": 15.0
 }]
 
@@ -56,7 +56,7 @@ script = ExtResource("1_jqn48")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_8qjos")
-frame_progress = 0.743794
+animation = &"porcupine"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 2)

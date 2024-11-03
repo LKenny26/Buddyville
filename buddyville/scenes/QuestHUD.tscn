@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cq4qqdpm2ykth"]
 
-[ext_resource type="Script" path="res://scenes/main_hud.gd" id="1_m52t1"]
-[ext_resource type="Theme" uid="uid://2ptam2oajy4g" path="res://resources/gameres/ui_theme.tres" id="1_xx2hc"]
+[ext_resource type="Script" path="res://scenes/QuestHUD.gd" id="1_m52t1"]
+[ext_resource type="Theme" uid="uid://xj8wnav5qibl" path="res://resources/gameres/ui_theme.tres" id="1_xx2hc"]
 [ext_resource type="Texture2D" uid="uid://d2s8sne0y30nh" path="res://resources/ui/Tilesheets/Large tiles/Thin outline/tilemap_packed.png" id="2_6nf1c"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uln6k"]

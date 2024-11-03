@@ -113,7 +113,11 @@ func _on_area_2d_input_event_porcupine(viewport: Node, event: InputEvent, shape_
 			var drag = load("res://resources/porcupine_death/footstep-drag-indoors-104989.mp3")
 			sound_player.stream = drag
 			sound_player.play()
-			await get_tree().create_timer(5).timeout
+			await get_tree().create_timer(7).timeout
+			var dig = load("res://resources/porcupine_death/digging-dirt-cu-variations-06-24481.mp3")
+			sound_player.stream = dig
+			sound_player.play()
+			await get_tree().create_timer(7).timeout
 			$Blackout.visible = false
 			GameState.grave_state = GameState.BURIED
 			GameState.villager_state["Porcupine"]["dead"] = true

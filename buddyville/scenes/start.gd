@@ -24,4 +24,14 @@ func _process(delta):
 	pass
 
 func _on_button_pressed():
-	get_tree().change_scene_to_file("res://scenes/main.tscn")
+	var main_res = load("res://scenes/main.tscn")
+	var main = main_res.instantiate()
+	get_tree().get_root().add_child(main)
+	var tween = get_tree().create_tween()
+	main.visible = false
+	main.get_node("./MiniMap").visible = false
+	main.get_node("./player/QuestHUD").visible = false
+	tween.tween_property($CanvasLayer/ColorRect, "color", Color.BLACK, 0.8)
+	tween.tween_callback(func(): main.get_node("./MiniMap").visible = true; main.get_node("./player/QuestHUD").visible = true; main.visible = true)
+	tween.tween_callback(Callable(self, "queue_free"))
+	tween.tween_callback(func(): get_tree().current_scene = main)

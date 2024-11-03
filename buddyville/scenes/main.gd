@@ -5,6 +5,7 @@ var sound_player := AudioStreamPlayer.new()
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$Map.connect("entered_building", Callable(self, "switch_indoor"))
 	add_child(sound_player)
 	$player.pause.connect(minimap_toggle)
 	$player.position = GameState.player_spawn_pos

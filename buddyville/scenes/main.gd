@@ -3,6 +3,7 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$Map.connect("entered_building", Callable(self, "switch_indoor"))
 	$player.pause.connect(minimap_toggle)
 	$player.position = GameState.player_spawn_pos
 	if GameState.villager_state["Monkey"]["dead"]:
@@ -36,3 +37,10 @@ func _on_dirt_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> 
 			$hole.visible = true
 			GameState.grave_state = GameState.DUG
 			
+
+func switch_indoor():
+
+	queue_free()
+	#tween.tween_callback(func(): main.get_node("./player/QuestHUD").visible = true; main.visible = true; main.get_node("./player").process_mode = Node.PROCESS_MODE_INHERIT)
+	#tween.tween_callback(Callable(self, "free"))
+	#tween.tween_callback(func(): get_tree().current_scene = main)

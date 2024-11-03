@@ -90,14 +90,13 @@ func _process(delta: float) -> void:
 		else:
 			get_node("AnimatedSprite2D").play("idle-down")
 	move_and_collide(direction * speed * delta) # cheat to get it to move and collide right
-	
-			
+	print("player pos:" + str(get_position_delta()))
 	#---------------- Pause Menu ----------------------
 	if Input.is_action_just_pressed("escape"):
 		emit_signal("pause")
 		can_move = pause_menu.visible
 		pause_menu.visible = !pause_menu.visible
-		
+
 
 
 func set_quest_window():

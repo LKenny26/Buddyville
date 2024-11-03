@@ -5,22 +5,6 @@
 [ext_resource type="Theme" uid="uid://xj8wnav5qibl" path="res://resources/gameres/ui_theme.tres" id="1_akpvl"]
 [ext_resource type="Texture2D" uid="uid://ulu5htyfwcd5" path="res://resources/ui/Tiles/Large tiles/Thick outline/tile_0019.png" id="4_cgyia"]
 
-[sub_resource type="Animation" id="Animation_ensy6"]
-resource_name = "new_animation"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Label:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(3.24901, 0.353554, 3.36358),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(1.25, 1.25), Vector2(1, 1)]
-}
-
 [sub_resource type="Animation" id="Animation_jli6x"]
 length = 0.001
 tracks/0/type = "value"
@@ -38,6 +22,22 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_getu0"]
 resource_name = "anim"
+
+[sub_resource type="Animation" id="Animation_ensy6"]
+resource_name = "new_animation"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(3.24901, 0.353554, 3.36358),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.25, 1.25), Vector2(1, 1)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qhk3t"]
 _data = {
@@ -109,6 +109,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_5gc0x")
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+top_level = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
 
 [node name="Button" type="Button" parent="CanvasLayer"]
 anchors_preset = -1

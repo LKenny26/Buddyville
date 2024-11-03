@@ -118,7 +118,7 @@ func _on_area_2d_input_event_monkey(viewport: Node, event: InputEvent, shape_idx
 
 func _on_area_2d_input_event_owl(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event.is_action_pressed("Interact") && player_close:
-		if GameState.game_state == GameState.AXE && GameState.has_axe == true:
+		if GameState.game_state == GameState.AXE:
 			curr_state = TALKING
 			dialogue.say("Did ya chop down those trees? Wait what are you.....")
 			dialogue.set_title("Oliver")

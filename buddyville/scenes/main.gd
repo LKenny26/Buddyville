@@ -32,7 +32,7 @@ func minimap_toggle():
 
 func _on_dirt_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton:
-		if $player.has_shovel && GameState.grave_state == GameState.NOT_DUG:
+		if GameState.game_state == GameState.BURY && GameState.grave_state == GameState.NOT_DUG:
 			$hole.visible = true
 			GameState.grave_state = GameState.DUG
 			

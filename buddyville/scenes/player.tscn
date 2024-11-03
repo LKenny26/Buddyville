@@ -5,9 +5,9 @@
 [ext_resource type="Texture2D" uid="uid://cwm1echrbvw5q" path="res://resources/sprites/player/Base Character - Free/death.png" id="2_px6ky"]
 [ext_resource type="Texture2D" uid="uid://cpfgl73cgvvlq" path="res://resources/sprites/player/Base Character - Free/walk.png" id="3_pr7ay"]
 [ext_resource type="Texture2D" uid="uid://doftigqod8qif" path="res://resources/sprites/player/Base Character - Free/run.png" id="3_s1pp5"]
-[ext_resource type="PackedScene" uid="uid://ddtjhyjyj14n4" path="res://scenes/dialogue_hud.tscn" id="6_ncyh4"]
+[ext_resource type="PackedScene" uid="uid://cogv1ja5ppqhl" path="res://scenes/dialogue_hud.tscn" id="6_ncyh4"]
 [ext_resource type="PackedScene" uid="uid://dlkgdkauuen1n" path="res://scenes/map.tscn" id="8_tsat4"]
-[ext_resource type="PackedScene" uid="uid://dkt0w38u04mho" path="res://scenes/QuestHUD.tscn" id="8_ychi4"]
+[ext_resource type="PackedScene" uid="uid://cq4qqdpm2ykth" path="res://scenes/QuestHUD.tscn" id="8_ychi4"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0adrg"]
 radius = 6.0

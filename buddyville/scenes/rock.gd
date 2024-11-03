@@ -15,7 +15,7 @@ func _process(delta):
 
 
 func _on_area_2d_body_entered(body):
-	if body != self && has_shovel && !interacted:
+	if body != self && GameState.inventory.has("shovel") && !interacted:
 		$Tooltip.visible = true
 		player_close = true
 
@@ -26,7 +26,7 @@ func _on_area_2d_body_exited(body):
 
 func _input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event.is_action_pressed("Interact"):
-		if !interacted && player_close && has_shovel:
+		if !interacted && player_close && GameState.inventory.has("shovel"):
 			print("gold")
 			GameState.give_item("gold")
 			interacted = true

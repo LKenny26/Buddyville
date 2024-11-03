@@ -16,7 +16,7 @@ enum{
 }
 
 const QUEST_STRINGS = {
-	PRE: "Quests you are doing show up here!",
+	PRE: "Go meet Petey in the town hall!",
 	MEET: "Go meet everyone!\n\nThen, return to Petey",
 	COLLECT: "Go collect an apple!\n\nThen, return to Petey",
 	DIG: "Go dig up some gold!\n\nThen, return to Petey",
